@@ -1230,11 +1230,7 @@ public final class LinearAlgebra {
 	}
 	
 	public static AlgebraicMatrix matrixTranspose(AlgebraicMatrix mat) {
-		int r = mat.rowSize(), c = mat.columnSize();
-		AlgebraicMatrix tr = new AlgebraicMatrix(c,r);
-		for (int i = 0; i < r; i++)
-			tr.addColumn(getAsNumberArray(mat.rows[i], c));
-		return tr;
+		return mat.transpose();
 	}
 	
 	
