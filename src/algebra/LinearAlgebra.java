@@ -1068,7 +1068,7 @@ public final class LinearAlgebra {
 			Number[] vector = new Number[c];
 			Number[] v1 = m1.rowToArray(i);
 			for (int j = 0; j < c; j++) {
-				Number[] v2 = m2.columnarray(j);
+				Number[] v2 = m2.columnToArray(j);
 				vector[j] = NumericArrays.intOrDouble(vectorsDotProduct(v1, v2));
 			}
 			res.addRow(vector);

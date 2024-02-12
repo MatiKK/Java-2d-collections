@@ -81,7 +81,6 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	}
 
 	/**
-	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
 	 * @throws IllegalArgumentException {@inheritDoc}
@@ -783,8 +782,8 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 		return Arrays.copyOf(getRow(n).toArray(), columnSize(), Number[].class);
 	}
 	
-	protected Number[] columnarray(int n) {
-		return Arrays.copyOf(getColumn(n).toArray(), columnSize(), Number[].class);
+	protected Number[] columnToArray(int n) {
+		return Arrays.copyOf(getColumn(n).toArray(), rowSize(), Number[].class);
 	}
 
 	/*--------------------------------------------------------------------------------------------*/
