@@ -1,9 +1,10 @@
-package collections2d;
+package algebra;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import collections2d.RegularMatrix;
 
 public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMatrixForAlgebra, Cloneable {
 

@@ -3,8 +3,8 @@ package test;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import collections2d.AlgebraicMatrix;
-import collections2d.NumericArrays;
+import algebra.AlgebraicMatrix;
+import algebra.NumericArrays;
 
 public class AskUserFor {
 

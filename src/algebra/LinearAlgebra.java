@@ -1,4 +1,4 @@
-package collections2d;
+package algebra;
 
 import java.util.Arrays;
 
@@ -1182,15 +1182,15 @@ public final class LinearAlgebra {
 	public static double matrixDeterminant(AlgebraicMatrix mat) {
 		if (!mat.isSquare()) throw new IllegalArgumentException("non square matrix.");
 		int size = mat.rowSize();
-		if (size == 1) return mat.elementAt(0,0).doubleValue();
+		if (size == 1) return mat.getElement(0,0).doubleValue();
 		if (size == 2) return NumericArrays.intOrDouble(
-				mat.elementAt(0, 0).doubleValue() * mat.elementAt(1, 1).doubleValue() - 
-				mat.elementAt(0, 1).doubleValue() * mat.elementAt(1, 0).doubleValue())
+				mat.getElement(0, 0).doubleValue() * mat.getElement(1, 1).doubleValue() - 
+				mat.getElement(0, 1).doubleValue() * mat.getElement(1, 0).doubleValue())
 				.doubleValue();
 		AlgebraicMatrix clone = (AlgebraicMatrix) mat.clone();
 		int swappedRowsCount = matrixRowEchelonForm(clone);
 		double determinant = Math.pow(-1, swappedRowsCount);
-		for (int i = 0; i < mat.rowSize(); i++) determinant = determinant * clone.elementAt(i, i).doubleValue();
+		for (int i = 0; i < mat.rowSize(); i++) determinant = determinant * clone.getElement(i, i).doubleValue();
 		return NumericArrays.intOrDouble(determinant).doubleValue();
 	}
 	

@@ -1,4 +1,4 @@
-package collections2d;
+package algebra;
 
 import java.util.concurrent.ThreadLocalRandom;
 

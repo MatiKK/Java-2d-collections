@@ -1,8 +1,9 @@
 package test;
 
-import collections2d.LinearAlgebra;
 import java.util.Arrays;
 import java.util.Scanner;
+
+import algebra.LinearAlgebra;
 
 public class Main_vectors {
 	public static void main(String[] args) {

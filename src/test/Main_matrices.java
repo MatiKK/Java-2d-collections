@@ -1,8 +1,9 @@
 package test;
 
-import collections2d.AlgebraicMatrix;
-import collections2d.LinearAlgebra;
 import java.util.Scanner;
+
+import algebra.AlgebraicMatrix;
+import algebra.LinearAlgebra;
 
 public class Main_matrices {
 	public static void main(String[] args) {

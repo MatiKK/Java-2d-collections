@@ -626,8 +626,8 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
      * @throws IndexOutOfBoundsException {@inheritDoc}
      */
 	public E getElement(int indexRow, int indexColumn) {
-		Objects.checkIndex(indexRow, numberOfRows);
-		Objects.checkIndex(indexColumn, numberOfColumns);
+//		Objects.checkIndex(indexRow, numberOfRows);
+//		Objects.checkIndex(indexColumn, numberOfColumns);
 		return elementAt(indexRow, indexColumn);
 	}
 	
@@ -638,7 +638,7 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
      * @return the element at the specified coordinates in this matrix
 	 */
 	@SuppressWarnings("unchecked")
-	protected E elementAt(int indexRow, int indexColumn) {
+	private E elementAt(int indexRow, int indexColumn) {
 		return (E) rows[indexRow][indexColumn];
 	}
 

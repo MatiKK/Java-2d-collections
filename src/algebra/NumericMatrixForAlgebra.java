@@ -1,11 +1,11 @@
-package collections2d;
+package algebra;
 
 import java.util.Collection;
 
 /**
  * Just used to write the java-doc here and not in AlgebraicMatrix.java x d
  */
-public interface NumericMatrixForAlgebra{
+public interface NumericMatrixForAlgebra {
 
 	/* ------------------------------- addRow() with no index -----------------------------------------------------*/
 	
