@@ -57,11 +57,11 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 		return !isEmpty() && rowSize() == columnSize();
 	}
 
-	public static AlgebraicMatrix random(int n) {
-		if (n < 1)
-			throw new IllegalArgumentException("Invalid dimension for matrix");
-		AlgebraicMatrix mat = new AlgebraicMatrix(n);
-		for (int i = 0; i < n; i++)
+	public static AlgebraicMatrix random(int m, int n) {
+		if (m < 1 || n < 1)
+			throw new IllegalArgumentException("Invalid dimensions for matrix");
+		AlgebraicMatrix mat = new AlgebraicMatrix(m, n);
+		for (int i = 0; i < m; i++)
 			mat.addRow(NumericArrays.randomNumberArray(n, -10, 10));
 		return mat;
 	}

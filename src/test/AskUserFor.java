@@ -40,7 +40,12 @@ public class AskUserFor {
 		rows = sc.nextInt();
 		System.out.print("Input the matrix number of columns: ");
 		columns = sc.nextInt();
-
+		sc.nextLine();
+		System.out.print("Random matrix of given sizes? (y/n): ");		
+		if (sc.nextLine().equalsIgnoreCase("y")) 
+			return AlgebraicMatrix.random(rows,columns);
+		
+		
 		AlgebraicMatrix mat = new AlgebraicMatrix(rows, columns);
 
 		System.out.println("Write your matrix rows separating each number with a space");
