@@ -50,7 +50,7 @@ public class AskUserFor {
 
 		System.out.println("Write your matrix rows separating each number with a space");
 
-		sc.nextLine();
+//		sc.nextLine();
 		int addedRows = 0;
 		while (mat.rowSize() != rows) {
 

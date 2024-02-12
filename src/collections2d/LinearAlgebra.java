@@ -1030,7 +1030,7 @@ public final class LinearAlgebra {
 		int r = m1.rowSize(), c = m1.columnSize();
 		AlgebraicMatrix res = new AlgebraicMatrix(r,c);
 		for (int i = 0; i < r; i++)
-			res.addRow(vectorOperation(getAsNumberArray(m1.rows[i], c),getAsNumberArray(m2.rows[i], c),alpha));
+			res.addRow(vectorOperation(m1.rowToArray(i),m2.rowToArray(i),alpha));
 		return res;
 	}
 
@@ -1047,7 +1047,7 @@ public final class LinearAlgebra {
 		int r = mat.rowSize(), c = mat.columnSize();
 		AlgebraicMatrix res = new AlgebraicMatrix(r,c);
 		for (int i = 0; i < r; i++)
-			res.addRow(vectorScalarMultiplication(getAsNumberArray(mat.rows[i], c),alpha));
+			res.addRow(vectorScalarMultiplication(mat.rowToArray(i),alpha));
 		return res;
 	}
 
@@ -1063,13 +1063,12 @@ public final class LinearAlgebra {
 	public static AlgebraicMatrix matrixMultiplication(AlgebraicMatrix m1, AlgebraicMatrix m2) {
 		checkMatrixMultiplicationIfItCanHappen(m1, m2);
 		int r = m1.rowSize(), c = m2.columnSize();
-		int commonSize = m1.columnSize();
 		AlgebraicMatrix res = new AlgebraicMatrix(r,c);
 		for(int i = 0; i < r; i++) {
 			Number[] vector = new Number[c];
-			Number[] v1 = getAsNumberArray(m1.rows[i], commonSize);
+			Number[] v1 = m1.rowToArray(i);
 			for (int j = 0; j < c; j++) {
-				Number[] v2 = getAsNumberArray(m2.columnToArray(j), commonSize);
+				Number[] v2 = m2.columnarray(j);
 				vector[j] = NumericArrays.intOrDouble(vectorsDotProduct(v1, v2));
 			}
 			res.addRow(vector);
@@ -1094,10 +1093,6 @@ public final class LinearAlgebra {
 		return mat;
 	}
 
-	private static Number[] getAsNumberArray(Object[] arr, int rowSize) {
-		return Arrays.copyOf(arr, rowSize, Number[].class);
-	}
-
 	/**
 	 * Orders the rows of the given matrix based on the index of the pivot of each row.
 	 *
@@ -1110,11 +1105,10 @@ public final class LinearAlgebra {
 	 */
 	protected static int matrixOrderingRows(AlgebraicMatrix mat) {
 		int swappedRowsCount = 0;
-		int sizeEachRow = mat.columnSize();
 		for (int row1 = 0; row1 < mat.rowSize() - 1; row1++) {
 			for (int row2 = row1 + 1; row2 < mat.rowSize(); row2++) {
-				int indexRow1 = NumericArrays.indexFirstNotZeroNumber(getAsNumberArray(mat.rows[row1],sizeEachRow));
-				int indexRow2 = NumericArrays.indexFirstNotZeroNumber(getAsNumberArray(mat.rows[row2],sizeEachRow));
+				int indexRow1 = NumericArrays.indexFirstNotZeroNumber(mat.rowToArray(row1));
+				int indexRow2 = NumericArrays.indexFirstNotZeroNumber(mat.rowToArray(row2));
 				if ( indexRow1 == -1 || (indexRow1 > indexRow2 && indexRow2 != -1 )) {
 					mat.swapRows(row1, row2);
 					swappedRowsCount++;
@@ -1142,12 +1136,11 @@ public final class LinearAlgebra {
 	public static int matrixRowEchelonForm(AlgebraicMatrix mat) {
 		int swappedRowsCount = matrixOrderingRows(mat);
 		int rowSize = mat.rowSize();
-		int sizeEachRow = mat.columnSize();
 		for (int row1 = 0; row1 < rowSize - 1; row1++) {
-			Number[] currentRow = getAsNumberArray(mat.rows[row1], sizeEachRow);
+			Number[] currentRow = mat.rowToArray(row1);
 			int indexFirstNotZeroCurrentRow = NumericArrays.indexFirstNotZeroNumber(currentRow);
 			for (int row2 = row1 + 1; row2 < rowSize; row2++) {
-				Number[] nextRow = getAsNumberArray(mat.rows[row2], sizeEachRow);
+				Number[] nextRow = mat.rowToArray(row2);
 				int indexFirstNotZeroNextRow = NumericArrays.indexFirstNotZeroNumber(nextRow);
 				if (indexFirstNotZeroCurrentRow == indexFirstNotZeroNextRow && indexFirstNotZeroCurrentRow != -1) {
 					/* I don't know how much precision this loses by using doubles instead of BigDecimal
@@ -1164,7 +1157,7 @@ public final class LinearAlgebra {
 
 					Number[] auxiliarRow = LinearAlgebra.vectorScalarMultiplication(currentRow, alpha);
 					auxiliarRow = LinearAlgebra.vectorSubtraction(nextRow, auxiliarRow);
-					mat.rows[row2] = auxiliarRow;
+					mat.setRow(row2,auxiliarRow);
 					mat.checkLength(auxiliarRow);
 				}
 			}
@@ -1208,9 +1201,9 @@ public final class LinearAlgebra {
 	 * @return a two-dimensional array where each element represents a row of the given matrix
 	 */
 	public static Number[][] matrixAs2dArray(AlgebraicMatrix mat){
-		int r = mat.rowSize(), c = mat.columnSize();
+		int r = mat.rowSize();
 		Number[][] rows = new Number[r][];
-		for (int i = 0; i < r; i++) rows[i] = getAsNumberArray(mat.rows[i], c);
+		for (int i = 0; i < r; i++) rows[i] = mat.rowToArray(i);
 		return rows;
 	}
 	

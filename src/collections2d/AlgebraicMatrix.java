@@ -11,7 +11,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * 
 	 */
 	private static final long serialVersionUID = -8468849696468224276L;
-
+	
 	/**
 	 * Constructs an empty AlgebraicMatrix instance with an initial capacity of
 	 * {@code 3x3}.
@@ -757,7 +757,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 		RegularMatrix<Number> srm = super.subMatrix(indexRow, indexColumn);
 		AlgebraicMatrix s = new AlgebraicMatrix(rowSize() - 1, columnSize() - 1);
 		for (int i = 0; i < rowSize() - 1; i++)
-			s.addRow(Arrays.copyOf(srm.rows[i], columnSize() - 1, Number[].class));
+			s.addRow(Arrays.copyOf(srm.getRow(i).toArray(), columnSize() - 1, Number[].class));
 		return s;
 	}
 
@@ -772,10 +772,18 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 		for (int i = 0; i < c; i++) {
 			Object[] newRow = new Object[r];
 			for (int j = 0; j < r; j++)
-				newRow[j] = rows[j][i];
+				newRow[j] = getElement(j,i);
 			tr.addRow(Arrays.copyOf(newRow, r, Number[].class));
 		}
 		return tr;
+	}
+	
+	protected Number[] rowToArray(int n) {
+		return Arrays.copyOf(getRow(n).toArray(), columnSize(), Number[].class);
+	}
+	
+	protected Number[] columnarray(int n) {
+		return Arrays.copyOf(getColumn(n).toArray(), columnSize(), Number[].class);
 	}
 
 	/*--------------------------------------------------------------------------------------------*/

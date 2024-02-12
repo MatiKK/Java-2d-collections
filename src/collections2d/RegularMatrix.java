@@ -46,7 +46,7 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
 	 * the length of this array buffer. Any empty RegularMatrix with rows ==
 	 * EMPTY_MATRIX will be expanded to the first row size.
 	 */
-	protected Object[][] rows; // not private for efficiency in AlgebraicMatrix
+	private Object[][] rows;
 
 	/**
 	 * The total rows this RegularMatrix can contain (this does NOT determine
@@ -808,12 +808,6 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
 		rm.numberOfColumns = numberOfColumns;
 		rm.numberOfElements = numberOfElements;
 		rm.numberOfRows = numberOfRows;
-	}
-	
-	protected void beAware() {
-		currentRowCapacity = rows.length;
-		currentColumnCapacity = currentRowCapacity == 0 ? 0 : rows[0] == null ? 0 : rows[0].length;
-		
 	}
 	
 }
