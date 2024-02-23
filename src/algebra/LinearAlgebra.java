@@ -1265,6 +1265,16 @@ public final class LinearAlgebra {
 	}
 
 	/**
+	 * Calculates the adjugate of the given matrix.
+	 * @param mat the matrix for which the adjugate matrix is to be calculated
+	 * @return the adjugate of the given matrix
+	 * @throws IllegalArgumentException if the given matrix is not square
+	 */
+	public static AlgebraicMatrix matrixAdjugate(AlgebraicMatrix mat) {
+		return matrixCofactor(mat).transpose();
+	}
+
+	/**
 	 * Calculates the inverse of the given matrix.
 	 * <p> This implementation currently computes the inverse of a matrix A by the definition
 	 * <blockquote><pre>
@@ -1285,7 +1295,7 @@ public final class LinearAlgebra {
 		// But this fixes it
 		if (mat.rowSize() == 1) det *= det;
 		if (det == 0) throw new IllegalArgumentException("Non inversible matrix");
-		return matrixScalarMultiplication(matrixCofactor(mat).transpose(), 1d/det);
+		return matrixScalarMultiplication(matrixAdjugate(mat), 1d/det);
 	}
 
 }
