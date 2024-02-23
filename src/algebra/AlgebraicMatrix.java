@@ -159,7 +159,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * @throws IncompatibleCollectionSizeException {@inheritDoc}
 	 */
 	public <T extends Number> boolean addRow(T[] row) {
-		NumericArrays.checkStaticArrayContainsNullElements(row);
+		NumericArrays.checkIfNumberArrayContainsNullElements(row);
 		Number[] arr = NumericArrays.generalizedNumberArray(row);
 		checkLength(arr);
 		return super.addRow(Arrays.asList(arr));
@@ -265,7 +265,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public <T extends Number> void addRow(int index, T[] row) {
-		NumericArrays.checkStaticArrayContainsNullElements(row);
+		NumericArrays.checkIfNumberArrayContainsNullElements(row);
 		Number[] arr = NumericArrays.generalizedNumberArray(row);
 		checkLength(arr);
 		super.addRow(index, Arrays.asList(arr));
@@ -363,7 +363,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * @throws IncompatibleCollectionSizeException{@inheritDoc}
 	 */
 	public <T extends Number> boolean addColumn(T[] column) {
-		NumericArrays.checkStaticArrayContainsNullElements(column);
+		NumericArrays.checkIfNumberArrayContainsNullElements(column);
 		Number[] arr = NumericArrays.generalizedNumberArray(column);
 		checkLength(arr);
 		return super.addColumn(Arrays.asList(arr));
@@ -469,7 +469,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public <T extends Number> void addColumn(int index, T[] column) {
-		NumericArrays.checkStaticArrayContainsNullElements(column);
+		NumericArrays.checkIfNumberArrayContainsNullElements(column);
 		Number[] arr = NumericArrays.generalizedNumberArray(column);
 		checkLength(arr);
 		super.addColumn(index, Arrays.asList(arr));
@@ -575,7 +575,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public <T extends Number> Collection<Number> setRow(int indexRow, T[] row) {
-		NumericArrays.checkStaticArrayContainsNullElements(row);
+		NumericArrays.checkIfNumberArrayContainsNullElements(row);
 		Number[] arr = NumericArrays.generalizedNumberArray(row);
 		checkLength(arr);
 		return super.setRow(indexRow, Arrays.asList(arr));
@@ -681,7 +681,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public <T extends Number> Collection<Number> setColumn(int index, T[] column) {
-		NumericArrays.checkStaticArrayContainsNullElements(column);
+		NumericArrays.checkIfNumberArrayContainsNullElements(column);
 		Number[] arr = NumericArrays.generalizedNumberArray(column);
 		checkLength(arr);
 		return super.setColumn(index, Arrays.asList(arr));

@@ -5,17 +5,15 @@ public class Test {
 		AlgebraicMatrix mat = LinearAlgebra.array2dAsMatrix(
 		new Number[][] {
 			{2,1,0,1},
-//			{1,2,-1,2},
-//			{1,-1,2,1},
-//			{1,3,-1,2}
+			{1,2,-1,2},
+			{1,-1,2,1},
+			{1,2,-1,2}
 		});
 
-		mat.addColumn(new int[] {1,2});
-		
-		checkInverse(mat);
-
-//		mat = AlgebraicMatrix.random(2,2);
 //		checkInverse(mat);
+
+		mat = AlgebraicMatrix.random(2,2);
+		checkInverse(mat);
 	
 	}
 
@@ -33,6 +31,8 @@ public class Test {
 
 			System.out.println("check: mat x inverse(mat)");
 			System.out.println(LinearAlgebra.matrixMultiplication(mat, inv));
+			System.out.println("check: inverse(mat) x mat");
+			System.out.println(LinearAlgebra.matrixMultiplication(inv, mat));
 		}
 		catch (IllegalArgumentException e) {
 			e.printStackTrace();

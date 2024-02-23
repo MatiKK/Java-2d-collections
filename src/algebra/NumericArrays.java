@@ -38,7 +38,7 @@ public final class NumericArrays {
 	 * @param arr1 first array
 	 * @param arr2 second array
 	 * @return an array representing the element-wise addition ({@code arr1 + arr2})
-	 * @throws IllegalArgumentException if the arrays do not have the same size
+	 * @throws IncompatibleArrayLengthException if the arrays do not have the same size
 	 */
 	public static int[] arrayAddition(int[] arr1, int[] arr2) {
 		return intArrayOp(arr1, arr2, 1);
@@ -49,7 +49,7 @@ public final class NumericArrays {
 	 * @param arr1 first array
 	 * @param arr2 second array
 	 * @return an array representing the element-wise subtraction ({@code arr1 - arr2})
-	 * @throws IllegalArgumentException if the arrays do not have the same size
+	 * @throws IncompatibleArrayLengthException if the arrays do not have the same size
 	 */
 	public static int[] arraySubtraction(int[] arr1, int[] arr2) {
 		return intArrayOp(arr1, arr2, -1);
@@ -60,7 +60,7 @@ public final class NumericArrays {
 	 * @param arr1 first array
 	 * @param arr2 second array
 	 * @return an array representing the element-wise addition ({@code arr1 + arr2})
-	 * @throws IllegalArgumentException if the arrays do not have the same size
+	 * @throws IncompatibleArrayLengthException if the arrays do not have the same size
 	 */
 	public static byte[] arrayAddition(byte[] arr1, byte[] arr2) {
 		return byteArrayOp(arr1, arr2, 1);
@@ -71,7 +71,7 @@ public final class NumericArrays {
 	 * @param arr1 first array
 	 * @param arr2 second array
 	 * @return an array representing the element-wise subtraction ({@code arr1 - arr2})
-	 * @throws IllegalArgumentException if the arrays do not have the same size
+	 * @throws IncompatibleArrayLengthException if the arrays do not have the same size
 	 */
 	public static byte[] arraySubtraction(byte[] arr1, byte[] arr2) {
 		return byteArrayOp(arr1, arr2, -1);
@@ -82,7 +82,7 @@ public final class NumericArrays {
 	 * @param arr1 first array
 	 * @param arr2 second array
 	 * @return an array representing the element-wise addition ({@code arr1 + arr2})
-	 * @throws IllegalArgumentException if the arrays do not have the same size
+	 * @throws IncompatibleArrayLengthException if the arrays do not have the same size
 	 */
 	public static short[] arrayAddition(short[] arr1, short[] arr2) {
 		return shortArrayOp(arr1, arr2, 1);
@@ -93,7 +93,7 @@ public final class NumericArrays {
 	 * @param arr1 first array
 	 * @param arr2 second array
 	 * @return an array representing the element-wise subtraction ({@code arr1 - arr2})
-	 * @throws IllegalArgumentException if the arrays do not have the same size
+	 * @throws IncompatibleArrayLengthException if the arrays do not have the same size
 	 */
 	public static short[] arraySubtraction(short[] arr1, short[] arr2) {
 		return shortArrayOp(arr1, arr2, -1);
@@ -104,7 +104,7 @@ public final class NumericArrays {
 	 * @param arr1 first array
 	 * @param arr2 second array
 	 * @return an array representing the element-wise addition ({@code arr1 + arr2})
-	 * @throws IllegalArgumentException if the arrays do not have the same size
+	 * @throws IncompatibleArrayLengthException if the arrays do not have the same size
 	 */
 	public static long[] arrayAddition(long[] arr1, long[] arr2) {
 		return longArrayOp(arr1, arr2, 1);
@@ -115,7 +115,7 @@ public final class NumericArrays {
 	 * @param arr1 first array
 	 * @param arr2 second array
 	 * @return an array representing the element-wise subtraction ({@code arr1 - arr2})
-	 * @throws IllegalArgumentException if the arrays do not have the same size
+	 * @throws IncompatibleArrayLengthException if the arrays do not have the same size
 	 */
 	public static long[] arraySubtraction(long[] arr1, long[] arr2) {
 		return longArrayOp(arr1, arr2, -1);
@@ -126,7 +126,7 @@ public final class NumericArrays {
 	 * @param arr1 first array
 	 * @param arr2 second array
 	 * @return an array representing the element-wise addition ({@code arr1 + arr2})
-	 * @throws IllegalArgumentException if the arrays do not have the same size
+	 * @throws IncompatibleArrayLengthException if the arrays do not have the same size
 	 */
 	public static float[] arrayAddition(float[] arr1, float[] arr2) {
 		return floatArrayOp(arr1, arr2, 1);
@@ -137,7 +137,7 @@ public final class NumericArrays {
 	 * @param arr1 first array
 	 * @param arr2 second array
 	 * @return an array representing the element-wise subtraction ({@code arr1 - arr2})
-	 * @throws IllegalArgumentException if the arrays do not have the same size
+	 * @throws IncompatibleArrayLengthException if the arrays do not have the same size
 	 */
 	public static float[] arraySubtraction(float[] arr1, float[] arr2) {
 		return floatArrayOp(arr1, arr2, -1);
@@ -148,7 +148,7 @@ public final class NumericArrays {
 	 * @param arr1 first array
 	 * @param arr2 second array
 	 * @return an array representing the element-wise addition ({@code arr1 + arr2})
-	 * @throws IllegalArgumentException if the arrays do not have the same size
+	 * @throws IncompatibleArrayLengthException if the arrays do not have the same size
 	 */
 	public static double[] arrayAddition(double[] arr1, double[] arr2) {
 		return doubleArrayOp(arr1, arr2, 1);
@@ -159,7 +159,7 @@ public final class NumericArrays {
 	 * @param arr1 first array
 	 * @param arr2 second array
 	 * @return an array representing the element-wise subtraction ({@code arr1 - arr2})
-	 * @throws IllegalArgumentException if the arrays do not have the same size
+	 * @throws IncompatibleArrayLengthException if the arrays do not have the same size
 	 */
 	public static double[] arraySubtraction(double[] arr1, double[] arr2) {
 		return doubleArrayOp(arr1, arr2, -1);
@@ -170,7 +170,7 @@ public final class NumericArrays {
 	 * @param arr1 first array
 	 * @param arr2 second array
 	 * @return an array representing the element-wise addition ({@code arr1 + arr2})
-	 * @throws IllegalArgumentException if the arrays do not have the same size
+	 * @throws IncompatibleArrayLengthException if the arrays do not have the same size
 	 */
 	public static <T extends Number> Number[] arrayAddition(T[] arr1, T[] arr2) {
 		return numberArrayOp(arr1, arr2, 1);
@@ -181,8 +181,7 @@ public final class NumericArrays {
 	 * @param arr1 first array
 	 * @param arr2 second array
 	 * @return an array representing the element-wise subtraction ({@code arr1 - arr2})
-	 * @throws NullPointerException if any of the arrays contain null elements
-	 * @throws IllegalArgumentException if the arrays do not have the same size
+	 * @throws IncompatibleArrayLengthException if the arrays do not have the same size
 	 */
 	public static <T extends Number> Number[] arraySubtraction(T[] arr1, T[] arr2) {
 		return numberArrayOp(arr1, arr2, -1);
@@ -192,17 +191,15 @@ public final class NumericArrays {
 	 * Performs the addition of the given two arrays, where the second array is
 	 * multiplied by the given number. Note that if {@code alpha = 1}, an addition
 	 * of arrays is performed. if {@code alpha = -1}, a subtraction is performed.
-	 * Its only use is for
-	 * {@linkplain LinearAlgebra#vectorOperation(int[], int[], Number)}.
 	 * 
 	 * @param arr1  first array
 	 * @param arr2  second array which will be multiplied by {@code alpha}
 	 * @param alpha scalar multiplier of {@code arr2}
 	 * @return {@code arr1 + (alpha * arr2)}
 	 * @throws IllegalArgumentException if any of the given arrays are empty
-	 * @throws IllegalArgumentException if the given arrays have different size
+	 * @throws IncompatibleArrayLengthException if the given arrays have different size
 	 */
-	static int[] intArrayOp(int[] arr1, int[] arr2, Number alpha) {
+	private static int[] intArrayOp(int[] arr1, int[] arr2, Number alpha) {
 		checkIfOperationCanBePerformed(arr1, arr2);
 		int size = arr1.length;
 		int[] res = new int[size];
@@ -216,17 +213,15 @@ public final class NumericArrays {
 	 * Performs the addition of the given two arrays, where the second array is
 	 * multiplied by the given number. Note that if {@code alpha = 1}, an addition
 	 * of arrays is performed. if {@code alpha = -1}, a subtraction is performed.
-	 * Its only use is for
-	 * {@linkplain LinearAlgebra#vectorOperation(byte[], byte[], Number)}.
 	 * 
 	 * @param arr1  first array
 	 * @param arr2  second array which will be multiplied by {@code alpha}
 	 * @param alpha scalar multiplier of {@code arr2}
 	 * @return {@code arr1 + (alpha * arr2)}
 	 * @throws IllegalArgumentException if any of the given arrays are empty
-	 * @throws IllegalArgumentException if the given arrays have different size
+	 * @throws IncompatibleArrayLengthException if the given arrays have different size
 	 */
-	static byte[] byteArrayOp(byte[] arr1, byte[] arr2, Number alpha) {
+	private static byte[] byteArrayOp(byte[] arr1, byte[] arr2, Number alpha) {
 		checkIfOperationCanBePerformed(arr1, arr2);
 		int size = arr1.length;
 		byte[] res = new byte[size];
@@ -240,17 +235,15 @@ public final class NumericArrays {
 	 * Performs the addition of the given two arrays, where the second array is
 	 * multiplied by the given number. Note that if {@code alpha = 1}, an addition
 	 * of arrays is performed. if {@code alpha = -1}, a subtraction is performed.
-	 * Its only use is for
-	 * {@linkplain LinearAlgebra#vectorOperation(short[], short[], Number)}.
 	 * 
 	 * @param arr1  first array
 	 * @param arr2  second array which will be multiplied by {@code alpha}
 	 * @param alpha scalar multiplier of {@code arr2}
 	 * @return {@code arr1 + (alpha * arr2)}
 	 * @throws IllegalArgumentException if any of the given arrays are empty
-	 * @throws IllegalArgumentException if the given arrays have different size
+	 * @throws IncompatibleArrayLengthException if the given arrays have different size
 	 */
-	static short[] shortArrayOp(short[] arr1, short[] arr2, Number alpha) {
+	private static short[] shortArrayOp(short[] arr1, short[] arr2, Number alpha) {
 		checkIfOperationCanBePerformed(arr1, arr2);
 		int size = arr1.length;
 		short[] res = new short[size];
@@ -264,17 +257,15 @@ public final class NumericArrays {
 	 * Performs the addition of the given two arrays, where the second array is
 	 * multiplied by the given number. Note that if {@code alpha = 1}, an addition
 	 * of arrays is performed. if {@code alpha = -1}, a subtraction is performed.
-	 * Its only use is for
-	 * {@linkplain LinearAlgebra#vectorOperation(long[], long[], Number)}.
 	 * 
 	 * @param arr1  first array
 	 * @param arr2  second array which will be multiplied by {@code alpha}
 	 * @param alpha scalar multiplier of {@code arr2}
 	 * @return {@code arr1 + (alpha * arr2)}
 	 * @throws IllegalArgumentException if any of the given arrays are empty
-	 * @throws IllegalArgumentException if the given arrays have different size
+	 * @throws IncompatibleArrayLengthException if the given arrays have different size
 	 */
-	static long[] longArrayOp(long[] arr1, long[] arr2, Number alpha) {
+	private static long[] longArrayOp(long[] arr1, long[] arr2, Number alpha) {
 		checkIfOperationCanBePerformed(arr1, arr2);
 		int size = arr1.length;
 		long[] res = new long[size];
@@ -288,17 +279,15 @@ public final class NumericArrays {
 	 * Performs the addition of the given two arrays, where the second array is
 	 * multiplied by the given number. Note that if {@code alpha = 1}, an addition
 	 * of arrays is performed. if {@code alpha = -1}, a subtraction is performed.
-	 * Its only use is for
-	 * {@linkplain LinearAlgebra#vectorOperation(float[], float[], Number)}.
 	 * 
 	 * @param arr1  first array
 	 * @param arr2  second array which will be multiplied by {@code alpha}
 	 * @param alpha scalar multiplier of {@code arr2}
 	 * @return {@code arr1 + (alpha * arr2)}
 	 * @throws IllegalArgumentException if any of the given arrays are empty
-	 * @throws IllegalArgumentException if the given arrays have different size
+	 * @throws IncompatibleArrayLengthException if the given arrays have different size
 	 */
-	static float[] floatArrayOp(float[] arr1, float[] arr2, Number alpha) {
+	private static float[] floatArrayOp(float[] arr1, float[] arr2, Number alpha) {
 		checkIfOperationCanBePerformed(arr1, arr2);
 		int size = arr1.length;
 		float[] res = new float[size];
@@ -312,17 +301,15 @@ public final class NumericArrays {
 	 * Performs the addition of the given two arrays, where the second array is
 	 * multiplied by the given number. Note that if {@code alpha = 1}, an addition
 	 * of arrays is performed. if {@code alpha = -1}, a subtraction is performed.
-	 * Its only use is for
-	 * {@linkplain LinearAlgebra#vectorOperation(double[], double[], Number)}.
 	 * 
 	 * @param arr1  first array
 	 * @param arr2  second array which will be multiplied by {@code alpha}
 	 * @param alpha scalar multiplier of {@code arr2}
 	 * @return {@code arr1 + (alpha * arr2)}
 	 * @throws IllegalArgumentException if any of the given arrays are empty
-	 * @throws IllegalArgumentException if the given arrays have different size
+	 * @throws IncompatibleArrayLengthException if the given arrays have different size
 	 */
-	static double[] doubleArrayOp(double[] arr1, double[] arr2, Number alpha) {
+	private static double[] doubleArrayOp(double[] arr1, double[] arr2, Number alpha) {
 		checkIfOperationCanBePerformed(arr1, arr2);
 		int size = arr1.length;
 		double[] res = new double[size];
@@ -336,7 +323,7 @@ public final class NumericArrays {
 	 * Performs the addition of the given two arrays, where the second array is
 	 * multiplied by the given number. Note that if {@code alpha = 1}, an addition
 	 * of arrays is performed. if {@code alpha = -1}, a subtraction is performed.
-	 * Its only use is for
+	 * Used for
 	 * {@linkplain LinearAlgebra#vectorOperation(Number[], Number[], Number)}.
 	 * 
 	 * @param arr1  first array
@@ -344,9 +331,9 @@ public final class NumericArrays {
 	 * @param alpha scalar multiplier of {@code arr2}
 	 * @return {@code arr1 + (alpha * arr2)}
 	 * @throws IllegalArgumentException if any of the given arrays are empty
-	 * @throws IllegalArgumentException if the given arrays have different size
+	 * @throws IncompatibleArrayLengthException if the given arrays have different size
 	 */
-	static <T extends Number> Number[] numberArrayOp(T[] arr1, T[] arr2, Number alpha) {
+	protected static <T extends Number> Number[] numberArrayOp(T[] arr1, T[] arr2, Number alpha) {
 		checkIfOperationCanBePerformed(arr1, arr2);
 		int size = arr1.length;
 		Number[] res = new Number[size];
@@ -1171,7 +1158,7 @@ public final class NumericArrays {
 	 * @param arr array to check if it contains null elements
 	 * @return {@code true} if an array of Numbers contains a null element
 	 */
-	static <T extends Number> boolean staticArrayContainsNullElements(T[] arr) {
+	public static <T extends Number> boolean NumberArrayContainsNullElements(T[] arr) {
 		for (T num : arr)
 			if (num == null)
 				return true;
@@ -1188,9 +1175,9 @@ public final class NumericArrays {
 	 * @throws NullPointerException if the given array contains at least one null
 	 *                              element
 	 */
-	static <T extends Number> void checkStaticArrayContainsNullElements(T[] arr) {
-		if (staticArrayContainsNullElements(arr))
-			throw new NullPointerException("This numeric array contains at least one null element");
+	public static <T extends Number> void checkIfNumberArrayContainsNullElements(T[] arr) {
+		if (NumberArrayContainsNullElements(arr))
+			throw new NullPointerException("The given Number array contains at least one null element");
 	}
 
 }
