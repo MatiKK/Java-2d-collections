@@ -4,7 +4,7 @@ package collections2d;
  * Superclass MatrixException that represents a general exception that can
  * occur when operating with matrices.
  */
-public abstract class MatrixException extends RuntimeException {
+public class MatrixException extends RuntimeException {
 
 	/**
 	 * 

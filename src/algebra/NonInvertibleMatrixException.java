@@ -5,7 +5,7 @@ package algebra;
  * non-invertible. This typically occurs when the matrix has a 
  * determinant of zero.
 */
-public class NonInvertibleMatrixException extends collections2d.MatrixException {
+public class NonInvertibleMatrixException extends AlgebraicMatrixException {
 
 	/**
 	 * 

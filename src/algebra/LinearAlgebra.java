@@ -31,7 +31,7 @@ public final class LinearAlgebra {
 	 * @param v1 first array to be added
 	 * @param v2 second array to be added
 	 * @return a new integer array representing the vector {@code v1 + v2}
-	 * @throws IllegalArgumentException if the arrays have different size
+	 * @throws IncompatibleArrayLengthException if the arrays have different size
 	 */
 	public static int[] vectorAddition(int[] v1, int[] v2) {
 		return NumericArrays.arrayAddition(v1, v2);
@@ -42,7 +42,7 @@ public final class LinearAlgebra {
 	 * @param v1 first array to be added
 	 * @param v2 second array to be added
 	 * @return a new integer array representing the vector {@code v1 - v2}
-	 * @throws IllegalArgumentException if the arrays have different size
+	 * @throws IncompatibleArrayLengthException if the arrays have different size
 	 */
 	public static int[] vectorSubtraction(int[] v1, int[] v2) {
 		return NumericArrays.arraySubtraction(v1, v2);
@@ -53,7 +53,7 @@ public final class LinearAlgebra {
 	 * @param v1 first array to be added
 	 * @param v2 second array to be added
 	 * @return a new byte array representing the vector {@code v1 + v2}
-	 * @throws IllegalArgumentException if the arrays have different size
+	 * @throws IncompatibleArrayLengthException if the arrays have different size
 	 */
 	public static byte[] vectorAddition(byte[] v1, byte[] v2) {
 		return NumericArrays.arrayAddition(v1, v2);
@@ -64,7 +64,7 @@ public final class LinearAlgebra {
 	 * @param v1 first array to be added
 	 * @param v2 second array to be added
 	 * @return a new byte array representing the vector {@code v1 - v2}
-	 * @throws IllegalArgumentException if the arrays have different size
+	 * @throws IncompatibleArrayLengthException if the arrays have different size
 	 */
 	public static byte[] vectorSubtraction(byte[] v1, byte[] v2) {
 		return NumericArrays.arraySubtraction(v1, v2);
@@ -75,7 +75,7 @@ public final class LinearAlgebra {
 	 * @param v1 first array to be added
 	 * @param v2 second array to be added
 	 * @return a new short integer array representing the vector {@code v1 + v2}
-	 * @throws IllegalArgumentException if the arrays have different size
+	 * @throws IncompatibleArrayLengthException if the arrays have different size
 	 */
 	public static short[] vectorAddition(short[] v1, short[] v2) {
 		return NumericArrays.arrayAddition(v1, v2);
@@ -86,7 +86,7 @@ public final class LinearAlgebra {
 	 * @param v1 first array to be added
 	 * @param v2 second array to be added
 	 * @return a new short integer array representing the vector {@code v1 - v2}
-	 * @throws IllegalArgumentException if the arrays have different size
+	 * @throws IncompatibleArrayLengthException if the arrays have different size
 	 */
 	public static short[] vectorSubtraction(short[] v1, short[] v2) {
 		return NumericArrays.arraySubtraction(v1, v2);
@@ -97,7 +97,7 @@ public final class LinearAlgebra {
 	 * @param v1 first array to be added
 	 * @param v2 second array to be added
 	 * @return a new long integer array representing the vector {@code v1 + v2}
-	 * @throws IllegalArgumentException if the arrays have different size
+	 * @throws IncompatibleArrayLengthException if the arrays have different size
 	 */
 	public static long[] vectorAddition(long[] v1, long[] v2) {
 		return NumericArrays.arrayAddition(v1, v2);
@@ -108,7 +108,7 @@ public final class LinearAlgebra {
 	 * @param v1 first array to be added
 	 * @param v2 second array to be added
 	 * @return a new long integer array representing the vector {@code v1 - v2}
-	 * @throws IllegalArgumentException if the arrays have different size
+	 * @throws IncompatibleArrayLengthException if the arrays have different size
 	 */
 	public static long[] vectorSubtraction(long[] v1, long[] v2) {
 		return NumericArrays.arraySubtraction(v1, v2);
@@ -119,7 +119,7 @@ public final class LinearAlgebra {
 	 * @param v1 first array to be added
 	 * @param v2 second array to be added
 	 * @return a new float array representing the vector {@code v1 + v2}
-	 * @throws IllegalArgumentException if the arrays have different size
+	 * @throws IncompatibleArrayLengthException if the arrays have different size
 	 */
 	public static float[] vectorAddition(float[] v1, float[] v2) {
 		return NumericArrays.arrayAddition(v1, v2);
@@ -130,7 +130,7 @@ public final class LinearAlgebra {
 	 * @param v1 first array to be added
 	 * @param v2 second array to be added
 	 * @return a new float array representing the vector {@code v1 - v2}
-	 * @throws IllegalArgumentException if the arrays have different size
+	 * @throws IncompatibleArrayLengthException if the arrays have different size
 	 */
 	public static float[] vectorSubtraction(float[] v1, float[] v2) {
 		return NumericArrays.arraySubtraction(v1, v2);
@@ -141,7 +141,7 @@ public final class LinearAlgebra {
 	 * @param v1 first array to be added
 	 * @param v2 second array to be added
 	 * @return a new double array representing the vector {@code v1 + v2}
-	 * @throws IllegalArgumentException if the arrays have different size
+	 * @throws IncompatibleArrayLengthException if the arrays have different size
 	 */
 	public static double[] vectorAddition(double[] v1, double[] v2) {
 		return NumericArrays.arrayAddition(v1, v2);
@@ -152,7 +152,7 @@ public final class LinearAlgebra {
 	 * @param v1 first array to be added
 	 * @param v2 second array to be added
 	 * @return a new double array representing the vector {@code v1 - v2}
-	 * @throws IllegalArgumentException if the arrays have different size
+	 * @throws IncompatibleArrayLengthException if the arrays have different size
 	 */
 	public static double[] vectorSubtraction(double[] v1, double[] v2) {
 		return NumericArrays.arraySubtraction(v1, v2);
@@ -165,7 +165,7 @@ public final class LinearAlgebra {
 	 * @param v2 second array to be added
 	 * @return a new Number object array representing the vector {@code v1 + v2}
 	 * @throws NullPointerException if any of the vectors contain null elements
-	 * @throws IllegalArgumentException if the arrays have different size
+	 * @throws IncompatibleArrayLengthException if the arrays have different size
 	 */
 	public static <T extends Number> Number[] vectorAddition(T[] v1, T[] v2) {
 		return NumericArrays.arrayAddition(v1, v2);
@@ -178,7 +178,7 @@ public final class LinearAlgebra {
 	 * @param v2 second array to be added
 	 * @return a new Number object array representing the vector {@code v1 - v2}
 	 * @throws NullPointerException if any of the vectors contain null elements
-	 * @throws IllegalArgumentException if the arrays have different size
+	 * @throws IncompatibleArrayLengthException if the arrays have different size
 	 */
 	public static <T extends Number> Number[] vectorSubtraction(T[] v1, T[] v2) {
 		return NumericArrays.arraySubtraction(v1, v2);
@@ -375,7 +375,7 @@ public final class LinearAlgebra {
 	 * @param v1 first vector
 	 * @param v2 second vector
 	 * @return the dot product of the two vectors
-	 * @throws IllegalArgumentException if the vectors have different size or if they are empty
+	 * @throws IncompatibleArrayLengthException if the vectors have different size or if they are empty
 	 */
 	public static int vectorsDotProduct(int[] v1, int[] v2) {
 		NumericArrays.checkIfOperationCanBePerformed(v1, v2);
@@ -391,7 +391,7 @@ public final class LinearAlgebra {
 	 * @param v1 first vector
 	 * @param v2 second vector
 	 * @return the dot product of the two vectors
-	 * @throws IllegalArgumentException if the vectors have different size or if they are empty
+	 * @throws IncompatibleArrayLengthException if the vectors have different size or if they are empty
 	 */
 	public static int vectorsDotProduct(byte[] v1, byte[] v2) {
 		NumericArrays.checkIfOperationCanBePerformed(v1, v2);
@@ -407,7 +407,7 @@ public final class LinearAlgebra {
 	 * @param v1 first vector
 	 * @param v2 second vector
 	 * @return the dot product of the two vectors
-	 * @throws IllegalArgumentException if the vectors have different size or if they are empty
+	 * @throws IncompatibleArrayLengthException if the vectors have different size or if they are empty
 	 */
 	public static int vectorsDotProduct(short[] v1, short[] v2) {
 		NumericArrays.checkIfOperationCanBePerformed(v1, v2);
@@ -423,7 +423,7 @@ public final class LinearAlgebra {
 	 * @param v1 first vector
 	 * @param v2 second vector
 	 * @return the dot product of the two vectors
-	 * @throws IllegalArgumentException if the vectors have different size or if they are empty
+	 * @throws IncompatibleArrayLengthException if the vectors have different size or if they are empty
 	 */
 	public static long vectorsDotProduct(long[] v1, long[] v2) {
 		NumericArrays.checkIfOperationCanBePerformed(v1, v2);
@@ -444,7 +444,7 @@ public final class LinearAlgebra {
 	 * @param v1 first vector
 	 * @param v2 second vector
 	 * @return the dot product of the two vectors
-	 * @throws IllegalArgumentException if the vectors have different size or if they are empty
+	 * @throws IncompatibleArrayLengthException if the vectors have different size or if they are empty
 	 */
 	public static double vectorsDotProduct(float[] v1, float[] v2) {
 		NumericArrays.checkIfOperationCanBePerformed(v1, v2);
@@ -461,7 +461,7 @@ public final class LinearAlgebra {
 	 * @param v1 first vector
 	 * @param v2 second vector
 	 * @return the dot product of the two vectors
-	 * @throws IllegalArgumentException if the vectors have different size or if they are empty
+	 * @throws IncompatibleArrayLengthException if the vectors have different size or if they are empty
 	 */
 	public static double vectorsDotProduct(double[] v1, double[] v2) {
 		NumericArrays.checkIfOperationCanBePerformed(v1, v2);
@@ -480,7 +480,7 @@ public final class LinearAlgebra {
 	 * @param v2 second vector
 	 * @return the dot product of the two vectors
   	 * @throws NullPointerException if any of the vectors contain null elements
-	 * @throws IllegalArgumentException if the vectors have different size or if they are empty
+	 * @throws IncompatibleArrayLengthException if the vectors have different size or if they are empty
 	 */
 	public static <T extends Number> double vectorsDotProduct(T[] v1, T[] v2) {
 		NumericArrays.checkIfOperationCanBePerformed(v1, v2);
@@ -501,7 +501,7 @@ public final class LinearAlgebra {
 	 * @param v1 first vector
 	 * @param v2 second vector
 	 * @return {@code true} if the vectors are perpendicular
-	 * @throws IllegalArgumentException if the vectors have different size or if they are empty
+	 * @throws IncompatibleArrayLengthException if the vectors have different size or if they are empty
 	 */
 	public static boolean vectorsArePerpendicular(int[] v1, int[] v2) {
 		return vectorsDotProduct(v1,v2) == 0;
@@ -514,7 +514,7 @@ public final class LinearAlgebra {
 	 * @param v1 first vector
 	 * @param v2 second vector
 	 * @return {@code true} if the vectors are perpendicular
-	 * @throws IllegalArgumentException if the vectors have different size or if they are empty
+	 * @throws IncompatibleArrayLengthException if the vectors have different size or if they are empty
 	 */
 	public static boolean vectorsArePerpendicular(byte[] v1, byte[] v2) {
 		return vectorsDotProduct(v1,v2) == 0;
@@ -527,7 +527,7 @@ public final class LinearAlgebra {
 	 * @param v1 first vector
 	 * @param v2 second vector
 	 * @return {@code true} if the vectors are perpendicular
-	 * @throws IllegalArgumentException if the vectors have different size or if they are empty
+	 * @throws IncompatibleArrayLengthException if the vectors have different size or if they are empty
 	 */
 	public static boolean vectorsArePerpendicular(short[] v1, short[] v2) {
 		return vectorsDotProduct(v1,v2) == 0;
@@ -540,7 +540,7 @@ public final class LinearAlgebra {
 	 * @param v1 first vector
 	 * @param v2 second vector
 	 * @return {@code true} if the vectors are perpendicular
-	 * @throws IllegalArgumentException if the vectors have different size or if they are empty
+	 * @throws IncompatibleArrayLengthException if the vectors have different size or if they are empty
 	 */
 	public static boolean vectorsArePerpendicular(long[] v1, long[] v2) {
 		return vectorsDotProduct(v1,v2) == 0;
@@ -553,7 +553,7 @@ public final class LinearAlgebra {
 	 * @param v1 first vector
 	 * @param v2 second vector
 	 * @return {@code true} if the vectors are perpendicular
-	 * @throws IllegalArgumentException if the vectors have different size or if they are empty
+	 * @throws IncompatibleArrayLengthException if the vectors have different size or if they are empty
 	 */
 	public static boolean vectorsArePerpendicular(float[] v1, float[] v2) {
 		return vectorsDotProduct(v1,v2) == 0;
@@ -566,7 +566,7 @@ public final class LinearAlgebra {
 	 * @param v1 first vector
 	 * @param v2 second vector
 	 * @return {@code true} if the vectors are perpendicular
-	 * @throws IllegalArgumentException if the vectors have different size or if they are empty
+	 * @throws IncompatibleArrayLengthException if the vectors have different size or if they are empty
 	 */
 	public static boolean vectorsArePerpendicular(double[] v1, double[] v2) {
 		return vectorsDotProduct(v1,v2) == 0;
@@ -581,7 +581,7 @@ public final class LinearAlgebra {
 	 * @param v2 second vector
 	 * @return {@code true} if the vectors are perpendicular
 	 * @throws NullPointerException if the vector contains null elements
-	 * @throws IllegalArgumentException if the vectors have different size or if they are empty
+	 * @throws IncompatibleArrayLengthException if the vectors have different size or if they are empty
 	 */
 	public static <T extends Number> boolean vectorsArePerpendicular(T[] v1, T[] v2) {
 		return vectorsDotProduct(v1,v2) == 0;
@@ -603,7 +603,8 @@ public final class LinearAlgebra {
 	 */
 	public static int[] perpendicularVector(int[] v) {
 		int vLength = v.length;
-		if (vLength < 2) throw new IllegalArgumentException("vectors of size" + vLength + "cannot have perpendicular vectors");
+		if (vLength < 2)
+			throw new IllegalArgumentException("Perpendicularity does not exist for dimension " + vLength);
 		int ind = NumericArrays.indexFirstNotZeroNumber(v);
 		int[] perp = new int[vLength];
 		if (ind == -1) return perp;
@@ -630,7 +631,8 @@ public final class LinearAlgebra {
 	 */
 	public static byte[] perpendicularVector(byte[] v) {
 		int vLength = v.length;
-		if (vLength < 2) throw new IllegalArgumentException("vectors of size" + vLength + "cannot have perpendicular vectors");
+		if (vLength < 2)
+			throw new IllegalArgumentException("Perpendicularity does not exist for dimension " + vLength);
 		int ind = NumericArrays.indexFirstNotZeroNumber(v);
 		byte[] perp = new byte[vLength];
 		if (ind == -1) return perp;
@@ -657,7 +659,8 @@ public final class LinearAlgebra {
 	 */
 	public static short[] perpendicularVector(short[] v) {
 		int vLength = v.length;
-		if (vLength < 2) throw new IllegalArgumentException("vectors of size" + vLength + "cannot have perpendicular vectors");
+		if (vLength < 2)
+			throw new IllegalArgumentException("Perpendicularity does not exist for dimension " + vLength);
 		int ind = NumericArrays.indexFirstNotZeroNumber(v);
 		short[] perp = new short[vLength];
 		if (ind == -1) return perp;
@@ -684,7 +687,8 @@ public final class LinearAlgebra {
 	 */
 	public static long[] perpendicularVector(long[] v) {
 		int vLength = v.length;
-		if (vLength < 2) throw new IllegalArgumentException("vectors of size" + vLength + "cannot have perpendicular vectors");
+		if (vLength < 2)
+			throw new IllegalArgumentException("Perpendicularity does not exist for dimension " + vLength);
 		int ind = NumericArrays.indexFirstNotZeroNumber(v);
 		long[] perp = new long[vLength];
 		if (ind == -1) return perp;
@@ -711,7 +715,8 @@ public final class LinearAlgebra {
 	 */
 	public static float[] perpendicularVector(float[] v) {
 		int vLength = v.length;
-		if (vLength < 2) throw new IllegalArgumentException("vectors of size" + vLength + "cannot have perpendicular vectors");
+		if (vLength < 2)
+			throw new IllegalArgumentException("Perpendicularity does not exist for dimension " + vLength);
 		int ind = NumericArrays.indexFirstNotZeroNumber(v);
 		float[] perp = new float[vLength];
 		if (ind == -1) return perp;
@@ -738,7 +743,8 @@ public final class LinearAlgebra {
 	 */
 	public static double[] perpendicularVector(double[] v) {
 		int vLength = v.length;
-		if (vLength < 2) throw new IllegalArgumentException("vectors of size" + vLength + "cannot have perpendicular vectors");
+		if (vLength < 2)
+			throw new IllegalArgumentException("Perpendicularity does not exist for dimension " + vLength);
 		int ind = NumericArrays.indexFirstNotZeroNumber(v);
 		double[] perp = new double[vLength];
 		if (ind == -1) return perp;
@@ -767,7 +773,8 @@ public final class LinearAlgebra {
 	 */
 	public static <T extends Number> Number[] perpendicularVector(T[] v) {
 		int vLength = v.length;
-		if (vLength < 2) throw new IllegalArgumentException("vectors of size" + vLength + "cannot have perpendicular vectors");
+		if (vLength < 2)
+			throw new IllegalArgumentException("Perpendicularity does not exist for dimension " + vLength);
 		int ind = NumericArrays.indexFirstNotZeroNumber(v);
 		Number[] perp = new Number[vLength];
 		if (ind == -1) return perp;
@@ -794,12 +801,13 @@ public final class LinearAlgebra {
 	 * @param v2 second vector
 	 * @return a new vector representing the cross product of the two given vectors that is 
 	 * perpendicular to both of them
-	 * @throws IllegalArgumentException if the given vectors does not have exactly three numbers
+	 * @throws IncompatibleArrayLengthException if the given vectors does not have exactly three numbers
 	 */
 	public static int[] crossProduct(int[] v1, int[] v2) {
 		NumericArrays.checkIfOperationCanBePerformed(v1, v2);
 		int size = v1.length;
-		if (size != 3) throw new IllegalArgumentException("Cross product can only be done in three-dimensional vectors");
+		if (size != 3)
+		throw new IncompatibleArrayLengthException("Cross product doable only in three-dimensional vectors");
 		
 		int[] res = new int[size];
 		int numToAdd;
@@ -820,12 +828,12 @@ public final class LinearAlgebra {
 	 * @param v2 second vector
 	 * @return a new vector representing the cross product of the two given vectors that is 
 	 * perpendicular to both of them
-	 * @throws IllegalArgumentException if the given vectors does not have exactly three numbers
+	 * @throws IncompatibleArrayLengthException if the given vectors does not have exactly three numbers
 	 */
 	public static byte[] crossProduct(byte[] v1, byte[] v2) {
 		NumericArrays.checkIfOperationCanBePerformed(v1, v2);
 		int size = v1.length;
-		if (size != 3) throw new IllegalArgumentException("Cross product can only be done in three-dimensional vectors");
+		if (size != 3) throw new IncompatibleArrayLengthException("Cross product can only be done in three-dimensional vectors");
 
 		byte[] res = new byte[size];
 		int numToAdd;
@@ -846,12 +854,12 @@ public final class LinearAlgebra {
 	 * @param v2 second vector
 	 * @return a new vector representing the cross product of the two given vectors that is 
 	 * perpendicular to both of them
-	 * @throws IllegalArgumentException if the given vectors does not have exactly three numbers
+	 * @throws IncompatibleArrayLengthException if the given vectors does not have exactly three numbers
 	 */
 	public static short[] crossProduct(short[] v1, short[] v2) {
 		NumericArrays.checkIfOperationCanBePerformed(v1, v2);
 		int size = v1.length;
-		if (size != 3) throw new IllegalArgumentException("Cross product can only be done in three-dimensional vectors");
+		if (size != 3) throw new IncompatibleArrayLengthException("Cross product can only be done in three-dimensional vectors");
 		
 		short[] res = new short[size];
 		int numToAdd;
@@ -872,12 +880,12 @@ public final class LinearAlgebra {
 	 * @param v2 second vector
 	 * @return a new vector representing the cross product of the two given vectors that is 
 	 * perpendicular to both of them
-	 * @throws IllegalArgumentException if the given vectors does not have exactly three numbers
+	 * @throws IncompatibleArrayLengthException if the given vectors does not have exactly three numbers
 	 */
 	public static long[] crossProduct(long[] v1, long[] v2) {
 		NumericArrays.checkIfOperationCanBePerformed(v1, v2);
 		int size = v1.length;
-		if (size != 3) throw new IllegalArgumentException("Cross product can only be done in three-dimensional vectors");
+		if (size != 3) throw new IncompatibleArrayLengthException("Cross product can only be done in three-dimensional vectors");
 		
 		long[] res = new long[size];
 		long numToAdd;
@@ -898,12 +906,12 @@ public final class LinearAlgebra {
 	 * @param v2 second vector
 	 * @return a new vector representing the cross product of the two given vectors that is 
 	 * perpendicular to both of them
-	 * @throws IllegalArgumentException if the given vectors does not have exactly three numbers
+	 * @throws IncompatibleArrayLengthException if the given vectors does not have exactly three numbers
 	 */
 	public static float[] crossProduct(float[] v1, float[] v2) {
 		NumericArrays.checkIfOperationCanBePerformed(v1, v2);
 		int size = v1.length;
-		if (size != 3) throw new IllegalArgumentException("Cross product can only be done in three-dimensional vectors");
+		if (size != 3) throw new IncompatibleArrayLengthException("Cross product can only be done in three-dimensional vectors");
 		
 		float[] res = new float[size];
 		float numToAdd;
@@ -924,12 +932,12 @@ public final class LinearAlgebra {
 	 * @param v2 second vector
 	 * @return a new vector representing the cross product of the two given vectors that is 
 	 * perpendicular to both of them
-	 * @throws IllegalArgumentException if the given vectors does not have exactly three numbers
+	 * @throws IncompatibleArrayLengthException if the given vectors does not have exactly three numbers
 	 */
 	public static double[] crossProduct(double[] v1, double[] v2) {
 		NumericArrays.checkIfOperationCanBePerformed(v1, v2);
 		int size = v1.length;
-		if (size != 3) throw new IllegalArgumentException("Cross product can only be done in three-dimensional vectors");
+		if (size != 3) throw new IncompatibleArrayLengthException("Cross product can only be done in three-dimensional vectors");
 		
 		double[] res = new double[size];
 		double numToAdd;
@@ -953,12 +961,12 @@ public final class LinearAlgebra {
 	 * perpendicular to both of them
 	 * 
 	 * @throws NullPointerException if any of the given vectors contain null elements
-	 * @throws IllegalArgumentException if the given vectors does not have exactly three numbers
+	 * @throws IncompatibleArrayLengthException if the given vectors does not have exactly three numbers
 	 */
 	public static <T extends Number> Number[] crossProduct(T[] v1, T[] v2) {
 		NumericArrays.checkIfOperationCanBePerformed(v1, v2);
 		int size = v1.length;
-		if (size != 3) throw new IllegalArgumentException("Cross product can only be done in three-dimensional vectors");
+		if (size != 3) throw new IncompatibleArrayLengthException("Cross product can only be done in three-dimensional vectors");
 		
 		Number[] res = new Number[size];
 		double numToAdd;
@@ -978,23 +986,23 @@ public final class LinearAlgebra {
 	
 	private static void isValid(AlgebraicMatrix m) {
 		if (m == null) throw new NullPointerException("Given Matrix is null");
-		if (m.isEmpty()) throw new IllegalArgumentException("Given matrix is empty and not valid for this operation");
+		if (m.isEmpty()) throw new AlgebraicMatrixException("Given matrix is empty and not valid for this operation");
 	}
-	
+
 	private static boolean areValidForOperation(AlgebraicMatrix m1, AlgebraicMatrix m2) {
 		return m1.getDimension().equals(m2.getDimension());
 	}
-	
+
 	private static void checkMatrixOperationIfItCanHappen(AlgebraicMatrix m1, AlgebraicMatrix m2) {
-		isValid(m1); isValid(m2); if (!areValidForOperation(m1, m2)) throw new IllegalArgumentException("Can't operate with these matrices due to their different dimensions");
+		isValid(m1); isValid(m2); if (!areValidForOperation(m1, m2)) throw new AlgebraicMatrixException("Can't operate with these matrices due to their different dimensions");
 	}
-	
+
 	private static boolean areValidForMultiplication(AlgebraicMatrix m1, AlgebraicMatrix m2) {
 		return m1.columnSize() == m2.rowSize();
 	}
 
 	private static void checkMatrixMultiplicationIfItCanHappen(AlgebraicMatrix m1, AlgebraicMatrix m2) {
-		isValid(m1); isValid(m2); if (!areValidForMultiplication(m1, m2)) throw new IllegalArgumentException("Unsupported operation for different dimensions matrices");
+		isValid(m1); isValid(m2); if (!areValidForMultiplication(m1, m2)) throw new AlgebraicMatrixException("Unsupported operation for different dimensions matrices");
 	}
 
 	/**
@@ -1004,7 +1012,7 @@ public final class LinearAlgebra {
 	 * @param m2 second matrix
 	 * @return a new {@link AlgebraicMatrix} representing {@code m1 + m2}
 	 * 
-	 * @throws IllegalArgumentException if the matrices do not have the same dimensions
+	 * @throws AlgebraicMatrixException if the matrices do not have the same dimensions
 	 * 									or if they are empty (dimension {@code 0x0})
 	 */
 	public static AlgebraicMatrix matrixAddition(AlgebraicMatrix m1, AlgebraicMatrix m2) {
@@ -1018,7 +1026,7 @@ public final class LinearAlgebra {
 	 * @param m2 second matrix (subtrahend)
 	 * @return a new {@link AlgebraicMatrix} representing {@code m1 - m2}
 	 * 
-	 * @throws IllegalArgumentException if the matrices do not have the same dimensions
+	 * @throws AlgebraicMatrixException if the matrices do not have the same dimensions
 	 * 									or if they are empty (dimension {@code 0x0})
 	 */
 	public static AlgebraicMatrix matrixSubtraction(AlgebraicMatrix m1, AlgebraicMatrix m2) {
@@ -1040,7 +1048,7 @@ public final class LinearAlgebra {
 	 * @param mat matrix to be multiplied
 	 * @param alpha the scalar value
 	 * @return a new {@link AlgebraicMatrix} representing the result of the matrix scalar multiplication
-	 * @throws IllegalArgumentException if the given matrix is empty (dimension {@code 0x0})
+	 * @throws AlgebraicMatrixException if the given matrix is empty (dimension {@code 0x0})
 	 */
 	public static AlgebraicMatrix matrixScalarMultiplication(AlgebraicMatrix mat, Number alpha) {
 		isValid(mat);
@@ -1061,7 +1069,7 @@ public final class LinearAlgebra {
 	 * @param m1 first matrix
 	 * @param m2 second matrix
 	 * @return a new {@link AlgebraicMatrix} representing {@code m1 x m2}
-	 * @throws IllegalArgumentException if their dimensions are incompatible for matrix multiplication
+	 * @throws AlgebraicMatrixException if their dimensions are incompatible for matrix multiplication
 	 * (the number of columns in {@code m1} is not equal to the number of rows in {@code m2})
 	 */
 	public static AlgebraicMatrix matrixMultiplication(AlgebraicMatrix m1, AlgebraicMatrix m2) {
@@ -1180,7 +1188,7 @@ public final class LinearAlgebra {
 	 * @param mat the matrix
 	 * @return the determinant of the given matrix
 	 * 
-	 * @throws IllegalArgumentException if the given matrix is not square 
+	 * @throws NonSquareMatrixException if the given matrix is not square 
 	 * (i.e., the number of rows is not equal to the number of columns).
 	 * A matrix of dimension {@code 0 x 0} is not considered square
 	 */
@@ -1241,7 +1249,7 @@ public final class LinearAlgebra {
 	 * Calculates the cofactor matrix of the given matrix.
 	 * @param mat matrix for which the cofactor matrix is to be computed
 	 * @return the cofactor matrix of the given matrix
-	 * @throws IllegalArgumentException if the given matrix is not square
+	 * @throws NonSquareMatrixException if the given matrix is not square
 	 */
 	public static AlgebraicMatrix matrixCofactor(AlgebraicMatrix mat) {
 		if (!mat.isSquare())
@@ -1272,7 +1280,7 @@ public final class LinearAlgebra {
 	 * Calculates the adjugate of the given matrix.
 	 * @param mat the matrix for which the adjugate matrix is to be calculated
 	 * @return the adjugate of the given matrix
-	 * @throws IllegalArgumentException if the given matrix is not square
+	 * @throws NonSquareMatrixException if the given matrix is not square
 	 */
 	public static AlgebraicMatrix matrixAdjugate(AlgebraicMatrix mat) {
 		return matrixCofactor(mat).transpose();
@@ -1286,8 +1294,8 @@ public final class LinearAlgebra {
 	 * </pre></blockquote>
 	 * @param mat matrix for which the inverse is to be computed
 	 * @return the inverse of the given matrix
-	 * @throws IllegalArgumentException if the given matrix is not square
-	 * or if it is non invertible
+	 * @throws NonInvertibleMatrixException if the given matrix is non invertible
+	 * @throws NonSquareMatrixException if the given matrix is not square
 	 */
 	public static AlgebraicMatrix matrixInverse(AlgebraicMatrix mat) {
 		// TODO for high dimensions, this is not effective

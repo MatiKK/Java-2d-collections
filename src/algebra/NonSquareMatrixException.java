@@ -4,7 +4,7 @@ package algebra;
  * Thrown when an operation requiring a square matrix is performed 
  * on a matrix that is not square.
 */
-public class NonSquareMatrixException extends collections2d.MatrixException {
+public class NonSquareMatrixException extends AlgebraicMatrixException {
 
 	/**
 	 *
