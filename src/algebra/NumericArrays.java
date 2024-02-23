@@ -13,9 +13,9 @@ public final class NumericArrays {
 
 	// checking methods
 	private static String EMPTY_ARRAY = "Invalid operation for empty arrays";
-	private static String DIFFERENT_SIZE = "Invalid operation for different size arrays: ";
-
-	private static String diff_size(int a, int b) {return DIFFERENT_SIZE + a + " =/= " + b;}
+	private static void differentSize(int a, int b) {
+		throw new IncompatibleArrayLengthException(a,b);
+	}
 
 	static void checkEmptiness(int[] arr) {if (arr.length == 0)throw new IllegalArgumentException(EMPTY_ARRAY);}
 	static void checkEmptiness(byte[] arr) {if (arr.length == 0)throw new IllegalArgumentException(EMPTY_ARRAY);}
@@ -25,13 +25,13 @@ public final class NumericArrays {
 	static void checkEmptiness(double[] arr) {if (arr.length == 0)throw new IllegalArgumentException(EMPTY_ARRAY);}
 	static <T extends Number> void checkEmptiness(T[] arr) {if (arr.length == 0)throw new IllegalArgumentException(EMPTY_ARRAY);}
 
-	static void checkIfOperationCanBePerformed(int[] arr1, int[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length)throw new IllegalArgumentException(diff_size(arr1.length, arr2.length));}
-	static void checkIfOperationCanBePerformed(byte[] arr1, byte[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length)throw new IllegalArgumentException(diff_size(arr1.length, arr2.length));}
-	static void checkIfOperationCanBePerformed(short[] arr1, short[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length)throw new IllegalArgumentException(diff_size(arr1.length, arr2.length));}
-	static void checkIfOperationCanBePerformed(long[] arr1, long[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length)throw new IllegalArgumentException(diff_size(arr1.length, arr2.length));}
-	static void checkIfOperationCanBePerformed(float[] arr1, float[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length)throw new IllegalArgumentException(diff_size(arr1.length, arr2.length));}
-	static void checkIfOperationCanBePerformed(double[] arr1, double[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length)throw new IllegalArgumentException(diff_size(arr1.length, arr2.length));}
-	static <T extends Number> void checkIfOperationCanBePerformed(T[] arr1, T[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length)throw new IllegalArgumentException(diff_size(arr1.length, arr2.length));}
+	static void checkIfOperationCanBePerformed(int[] arr1, int[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length) differentSize(arr1.length, arr2.length);}
+	static void checkIfOperationCanBePerformed(byte[] arr1, byte[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length)differentSize(arr1.length, arr2.length);}
+	static void checkIfOperationCanBePerformed(short[] arr1, short[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length)differentSize(arr1.length, arr2.length);}
+	static void checkIfOperationCanBePerformed(long[] arr1, long[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length)differentSize(arr1.length, arr2.length);}
+	static void checkIfOperationCanBePerformed(float[] arr1, float[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length)differentSize(arr1.length, arr2.length);}
+	static void checkIfOperationCanBePerformed(double[] arr1, double[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length)differentSize(arr1.length, arr2.length);}
+	static <T extends Number> void checkIfOperationCanBePerformed(T[] arr1, T[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length)differentSize(arr1.length, arr2.length);}
 
 	/**
 	 * Performs element-wise addition on two arrays.

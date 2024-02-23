@@ -1044,11 +1044,13 @@ public final class LinearAlgebra {
 	 */
 	public static AlgebraicMatrix matrixScalarMultiplication(AlgebraicMatrix mat, Number alpha) {
 		isValid(mat);
-		if (((Double)alpha).isInfinite()) throw new IllegalArgumentException("Invalid number as scalar: " + alpha);
+		double alph = alpha.doubleValue();
+		if (!Double.isFinite(alph))
+			throw new IllegalArgumentException("Invalid number as scalar: " + alpha);
 		int r = mat.rowSize(), c = mat.columnSize();
 		AlgebraicMatrix res = new AlgebraicMatrix(r,c);
 		for (int i = 0; i < r; i++) {
-			res.addRow(vectorScalarMultiplication(mat.rowToArray(i),alpha));
+			res.addRow(vectorScalarMultiplication(mat.rowToArray(i),alph));
 		}
 		return res;
 	}
@@ -1183,7 +1185,8 @@ public final class LinearAlgebra {
 	 * A matrix of dimension {@code 0 x 0} is not considered square
 	 */
 	public static double matrixDeterminant(AlgebraicMatrix mat) {
-		if (!mat.isSquare()) throw new IllegalArgumentException("non square matrix.");
+		if (!mat.isSquare())
+			throw new NonSquareMatrixException(mat.rowSize(), mat.columnSize());
 		int size = mat.rowSize();
 		if (size == 1) return mat.getElement(0,0).doubleValue();
 		if (size == 2) return NumericArrays.intOrDouble(
@@ -1196,7 +1199,7 @@ public final class LinearAlgebra {
 		for (int i = 0; i < mat.rowSize(); i++) determinant = determinant * clone.getElement(i, i).doubleValue();
 		return NumericArrays.intOrDouble(determinant).doubleValue();
 	}
-	
+
 	/**
 	 * Converts the given matrix into a two-dimensional array of Numbers.
 	 * 
@@ -1209,7 +1212,7 @@ public final class LinearAlgebra {
 		for (int i = 0; i < r; i++) rows[i] = mat.rowToArray(i);
 		return rows;
 	}
-
+	
 	/**
 	 * Converts the given two-dimensional array of Numbers into an {@link AlgebraicMatrix}.
 	 * 
@@ -1224,7 +1227,7 @@ public final class LinearAlgebra {
 		for (Number[] row: mat) m.addRow(row);
 		return m;
 	}
-	
+
 	/**
 	 * Returns the transpose of the given matrix.
 	 * @param mat the matrix for which the transpose is to be return
@@ -1241,7 +1244,8 @@ public final class LinearAlgebra {
 	 * @throws IllegalArgumentException if the given matrix is not square
 	 */
 	public static AlgebraicMatrix matrixCofactor(AlgebraicMatrix mat) {
-		if (!mat.isSquare()) throw new IllegalArgumentException("Non square matrix");
+		if (!mat.isSquare())
+			throw new NonSquareMatrixException(mat.rowSize(), mat.columnSize());
 		int size = mat.rowSize();
 		if (size == 1) {
 			return (AlgebraicMatrix) mat.clone();
@@ -1294,7 +1298,7 @@ public final class LinearAlgebra {
 		// for matrices 1x1 it makes inverse matrix to be always [1]
 		// But this fixes it
 		if (mat.rowSize() == 1) det *= det;
-		if (det == 0) throw new IllegalArgumentException("Non inversible matrix");
+		if (det == 0) throw new NonInvertibleMatrixException();
 		return matrixScalarMultiplication(matrixAdjugate(mat), 1d/det);
 	}
 

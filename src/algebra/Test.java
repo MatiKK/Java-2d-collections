@@ -5,18 +5,20 @@ public class Test {
 		AlgebraicMatrix mat = LinearAlgebra.array2dAsMatrix(
 		new Number[][] {
 			{2,1,0,1},
-			{1,2,-1,2},
-			{1,-1,2,1},
-			{-1,2,-1,2}
+//			{1,2,-1,2},
+//			{1,-1,2,1},
+//			{1,3,-1,2}
 		});
+
+		mat.addColumn(new int[] {1,2});
 		
 		checkInverse(mat);
 
-		mat = AlgebraicMatrix.random(4,4);
-		checkInverse(mat);
-		
-	}
+//		mat = AlgebraicMatrix.random(2,2);
+//		checkInverse(mat);
 	
+	}
+
 	private static void checkInverse(AlgebraicMatrix mat) {
 		System.out.println("------------------------------");
 		System.out.println("Matrix:");

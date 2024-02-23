@@ -415,13 +415,9 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
 		}
 
 		else if (checkedRowLength != numberOfColumns)
-			throw new IllegalArgumentException(incompatibleRowSize(numberOfColumns ,checkedRowLength));
+			throw new IncompatibleCollectionSizeException(getDimension(), checkedRowLength, true);
 	}
 	
-	private String incompatibleRowSize(int expected, int received) {
-		return "Expected a row of " + expected + " elements, but received one with " + received;
-	}
-
 	/**
 	 * Checks if the given column can be added to this {@code RegularMatrix}
 	 * instance. Some settings are made in the case the matrix is empty.
@@ -449,11 +445,7 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
 		}
 
 		else if (checkedColumnLength != numberOfRows)
-			throw new IllegalArgumentException(incompatibleColumnSize(numberOfRows, checkedColumnLength));
-	}
-	
-	private String incompatibleColumnSize(int expected, int received) {
-		return "Expected a column of " + expected + " elements, but received one with " + received;
+			throw new IncompatibleCollectionSizeException(getDimension(), checkedColumnLength, false);
 	}
 
 	/** Appends the specified row to the end of this matrix.
