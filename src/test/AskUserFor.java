@@ -27,6 +27,9 @@ public class AskUserFor {
 			4) matrix by a scalar
 			5) matrix determinant
 			6) matrix transpose
+			7) matrix inverse
+			8) cofactor matrix
+			9) adjugate matrix
 			""";
 
 	static Number scalarValue(Scanner sc) {

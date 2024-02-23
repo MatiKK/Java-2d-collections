@@ -82,6 +82,33 @@ public class Main_matrices {
 			System.out.println("\nTranspose: ");
 			System.out.println(result);
 			break;
+		case 7:
+			System.out.println("\nAsking for the 1st matrix");
+			m1 = AskUserFor.matrix(scan);
+			result = LinearAlgebra.matrixInverse(m1);
+			System.out.println();
+			System.out.println(m1);
+			System.out.println("\nInverse: ");
+			System.out.println(result);
+			break;
+		case 8:
+			System.out.println("\nAsking for the 1st matrix");
+			m1 = AskUserFor.matrix(scan);
+			result = LinearAlgebra.matrixCofactor(m1);
+			System.out.println();
+			System.out.println(m1);
+			System.out.println("\nCofactor matrix: ");
+			System.out.println(result);
+			break;
+		case 9:
+			System.out.println("\nAsking for the 1st matrix");
+			m1 = AskUserFor.matrix(scan);
+			result = LinearAlgebra.matrixAdjugate(m1);
+			System.out.println();
+			System.out.println(m1);
+			System.out.println("\nAdjugate matrix: ");
+			System.out.println(result);
+			break;
 		default:
 			System.out.println("Invalid choice");
 		}
