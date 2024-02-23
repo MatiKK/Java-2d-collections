@@ -770,14 +770,14 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 		int r = rowSize(), c = columnSize();
 		AlgebraicMatrix tr = new AlgebraicMatrix(c, r);
 		for (int i = 0; i < c; i++) {
-			Object[] newRow = new Object[r];
+			Number[] newRow = new Number[r];
 			for (int j = 0; j < r; j++)
 				newRow[j] = getElement(j,i);
-			tr.addRow(Arrays.copyOf(newRow, r, Number[].class));
+			tr.addRow(newRow);
 		}
 		return tr;
 	}
-	
+
 	protected Number[] rowToArray(int n) {
 		return Arrays.copyOf(getRow(n).toArray(), columnSize(), Number[].class);
 	}
