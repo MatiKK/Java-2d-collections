@@ -1044,10 +1044,12 @@ public final class LinearAlgebra {
 	 */
 	public static AlgebraicMatrix matrixScalarMultiplication(AlgebraicMatrix mat, Number alpha) {
 		isValid(mat);
+		if (((Double)alpha).isInfinite()) throw new IllegalArgumentException("Invalid number as scalar: " + alpha);
 		int r = mat.rowSize(), c = mat.columnSize();
 		AlgebraicMatrix res = new AlgebraicMatrix(r,c);
-		for (int i = 0; i < r; i++)
+		for (int i = 0; i < r; i++) {
 			res.addRow(vectorScalarMultiplication(mat.rowToArray(i),alpha));
+		}
 		return res;
 	}
 
@@ -1166,6 +1168,7 @@ public final class LinearAlgebra {
 		return swappedRowsCount;
 	}
 
+
 	/**
 	 * Returns the determinant of the given square matrix.
 	 * The determinant is a scalar value that can be used to determine various properties
@@ -1206,7 +1209,7 @@ public final class LinearAlgebra {
 		for (int i = 0; i < r; i++) rows[i] = mat.rowToArray(i);
 		return rows;
 	}
-	
+
 	/**
 	 * Converts the given two-dimensional array of Numbers into an {@link AlgebraicMatrix}.
 	 * 
@@ -1222,9 +1225,67 @@ public final class LinearAlgebra {
 		return m;
 	}
 	
+	/**
+	 * Returns the transpose of the given matrix.
+	 * @param mat the matrix for which the transpose is to be return
+	 * @return the transport of the given matrix
+	 */
 	public static AlgebraicMatrix matrixTranspose(AlgebraicMatrix mat) {
 		return mat.transpose();
 	}
-	
-	
+
+	/**
+	 * Calculates the cofactor matrix of the given matrix.
+	 * @param mat matrix for which the cofactor matrix is to be computed
+	 * @return the cofactor matrix of the given matrix
+	 * @throws IllegalArgumentException if the given matrix is not square
+	 */
+	public static AlgebraicMatrix matrixCofactor(AlgebraicMatrix mat) {
+		if (!mat.isSquare()) throw new IllegalArgumentException("Non square matrix");
+		int size = mat.rowSize();
+		if (size == 1) {
+			return (AlgebraicMatrix) mat.clone();
+		}
+		AlgebraicMatrix cof = new AlgebraicMatrix(size);
+		for (int i = 0; i < size; i++) {
+			Number[] row = new Number[size];
+			for (int j = 0; j < size; j++) {
+				double det = mat.subMatrix(i, j).determinant();
+				row[j] = det * evenIndexRC(i,j);
+			}
+			cof.addRow(row);
+		}
+		return cof;
+	}
+
+	// every odd index of the matrix is multiplied by -1, when taking cofactor matrix
+	// (considering as index i+j. where i is index of row and j index of column)
+	private static int evenIndexRC(int indexRow, int indexColumn) {
+		return (indexRow + indexColumn) % 2 == 0 ? 1 : -1;
+	}
+
+	/**
+	 * Calculates the inverse of the given matrix.
+	 * <p> This implementation currently computes the inverse of a matrix A by the definition
+	 * <blockquote><pre>
+	 * A<sup>-1</sup> = (1/|A|) * adj(A)
+	 * </pre></blockquote>
+	 * @param mat matrix for which the inverse is to be computed
+	 * @return the inverse of the given matrix
+	 * @throws IllegalArgumentException if the given matrix is not square
+	 * or if it is non invertible
+	 */
+	public static AlgebraicMatrix matrixInverse(AlgebraicMatrix mat) {
+		// TODO for high dimensions, this is not effective
+		// Should use Gaussian elimination
+
+		double det = mat.determinant();
+		// FIXME maybe
+		// for matrices 1x1 it makes inverse matrix to be always [1]
+		// But this fixes it
+		if (mat.rowSize() == 1) det *= det;
+		if (det == 0) throw new IllegalArgumentException("Non inversible matrix");
+		return matrixScalarMultiplication(matrixCofactor(mat).transpose(), 1d/det);
+	}
+
 }
