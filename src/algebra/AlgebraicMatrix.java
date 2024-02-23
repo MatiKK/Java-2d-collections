@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import collections2d.RegularMatrix;
+import collections2d.IncompatibleCollectionSizeException;
 
 public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMatrixForAlgebra, Cloneable {
 
@@ -71,7 +72,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException {@inheritDoc}
 	 */
 	public boolean addRow(Collection<Number> row) {
 		if (row.contains(null))
@@ -83,7 +84,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	/**
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException {@inheritDoc}
 	 */
 	public boolean addRow(int[] row) {
 		Number[] arr = NumericArrays.intToNumberArray(row);
@@ -95,7 +96,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException {@inheritDoc}
 	 */
 	public boolean addRow(byte[] row) {
 		Number[] arr = NumericArrays.byteToNumberArray(row);
@@ -107,7 +108,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException {@inheritDoc}
 	 */
 	public boolean addRow(short[] row) {
 		Number[] arr = NumericArrays.shortToNumberArray(row);
@@ -119,7 +120,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException {@inheritDoc}
 	 */
 	public boolean addRow(long[] row) {
 		Number[] arr = NumericArrays.longToNumberArray(row);
@@ -131,7 +132,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException {@inheritDoc}
 	 */
 	public boolean addRow(float[] row) {
 		Number[] arr = NumericArrays.floatToNumberArray(row);
@@ -143,7 +144,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException {@inheritDoc}
 	 */
 	public boolean addRow(double[] row) {
 		Number[] arr = NumericArrays.doubleToNumberArray(row);
@@ -155,7 +156,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException {@inheritDoc}
 	 */
 	public <T extends Number> boolean addRow(T[] row) {
 		NumericArrays.checkStaticArrayContainsNullElements(row);
@@ -168,7 +169,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritDoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public void addRow(int index, Collection<Number> row) {
@@ -182,7 +183,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public void addRow(int index, int[] row) {
@@ -195,7 +196,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public void addRow(int index, byte[] row) {
@@ -208,7 +209,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public void addRow(int index, short[] row) {
@@ -221,7 +222,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public void addRow(int index, long[] row) {
@@ -234,7 +235,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public void addRow(int index, float[] row) {
@@ -247,7 +248,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public void addRow(int index, double[] row) {
@@ -260,7 +261,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public <T extends Number> void addRow(int index, T[] row) {
@@ -274,7 +275,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException{@inheritDoc}
 	 */
 	public boolean addColumn(Collection<Number> column) {
 		if (column.contains(null))
@@ -287,7 +288,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException{@inheritDoc}
 	 */
 	public boolean addColumn(int[] column) {
 		Number[] arr = NumericArrays.intToNumberArray(column);
@@ -299,7 +300,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException{@inheritDoc}
 	 */
 	public boolean addColumn(byte[] column) {
 		Number[] arr = NumericArrays.byteToNumberArray(column);
@@ -311,7 +312,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException{@inheritDoc}
 	 */
 	public boolean addColumn(short[] column) {
 		Number[] arr = NumericArrays.shortToNumberArray(column);
@@ -323,7 +324,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException{@inheritDoc}
 	 */
 	public boolean addColumn(long[] column) {
 		Number[] arr = NumericArrays.longToNumberArray(column);
@@ -335,7 +336,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException{@inheritDoc}
 	 */
 	public boolean addColumn(float[] column) {
 		Number[] arr = NumericArrays.floatToNumberArray(column);
@@ -347,7 +348,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException{@inheritDoc}
 	 */
 	public boolean addColumn(double[] column) {
 		Number[] arr = NumericArrays.doubleToNumberArray(column);
@@ -359,7 +360,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException     {@inheritDoc}
-	 * @throws IllegalArgumentException {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException{@inheritDoc}
 	 */
 	public <T extends Number> boolean addColumn(T[] column) {
 		NumericArrays.checkStaticArrayContainsNullElements(column);
@@ -372,7 +373,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public void addColumn(int index, Collection<Number> column) {
@@ -386,7 +387,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public void addColumn(int index, int[] column) {
@@ -399,7 +400,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public void addColumn(int index, byte[] column) {
@@ -412,7 +413,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public void addColumn(int index, short[] column) {
@@ -425,7 +426,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public void addColumn(int index, long[] column) {
@@ -438,7 +439,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public void addColumn(int index, float[] column) {
@@ -451,7 +452,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public void addColumn(int index, double[] column) {
@@ -464,7 +465,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public <T extends Number> void addColumn(int index, T[] column) {
@@ -478,7 +479,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public Collection<Number> setRow(int index, Collection<Number> row) {
@@ -492,7 +493,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public Collection<Number> setRow(int index, int[] row) {
@@ -505,7 +506,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public Collection<Number> setRow(int index, byte[] row) {
@@ -518,7 +519,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public Collection<Number> setRow(int index, short[] row) {
@@ -531,7 +532,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public Collection<Number> setRow(int index, long[] row) {
@@ -544,7 +545,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public Collection<Number> setRow(int index, float[] row) {
@@ -557,7 +558,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public Collection<Number> setRow(int index, double[] row) {
@@ -570,7 +571,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public <T extends Number> Collection<Number> setRow(int indexRow, T[] row) {
@@ -584,7 +585,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public Collection<Number> setColumn(int index, Collection<Number> column) {
@@ -598,7 +599,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public Collection<Number> setColumn(int index, int[] column) {
@@ -611,7 +612,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public Collection<Number> setColumn(int index, byte[] column) {
@@ -624,7 +625,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public Collection<Number> setColumn(int index, short[] column) {
@@ -637,7 +638,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public Collection<Number> setColumn(int index, long[] column) {
@@ -650,7 +651,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public Collection<Number> setColumn(int index, float[] column) {
@@ -663,7 +664,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public Collection<Number> setColumn(int indexColumn, double[] column) {
@@ -676,7 +677,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * {@inheritDoc}
 	 * 
 	 * @throws NullPointerException      {@inheritDoc}
-	 * @throws IllegalArgumentException  {@inheritDoc}
+	 * @throws IncompatibleCollectionSizeException  {@inheritdoc}
 	 * @throws IndexOutOfBoundsException {@inheritDoc}
 	 */
 	public <T extends Number> Collection<Number> setColumn(int index, T[] column) {

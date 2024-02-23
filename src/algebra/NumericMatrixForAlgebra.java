@@ -1,6 +1,7 @@
 package algebra;
 
 import java.util.Collection;
+import collections2d.IncompatibleCollectionSizeException;
 
 /**
  * Just used to write the java-doc here and not in AlgebraicMatrix.java x d
@@ -15,7 +16,7 @@ public interface NumericMatrixForAlgebra {
      * @param row row to be appended to this matrix
      * @return {@code true} (as specified by {@link Collection2D#addRow})
      * @throws NullPointerException if the specified row is null
-     * @throws IllegalArgumentException if the row is incompatible (the length of
+     * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -27,7 +28,7 @@ public interface NumericMatrixForAlgebra {
 	 * @param row row to be appended to this matrix
 	 * @return {@code true} (as specified by {@link Collection2D#addRow})
 	 * @throws NullPointerException     if the specified row is null
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
 	 */	
@@ -39,7 +40,7 @@ public interface NumericMatrixForAlgebra {
      * @param row row to be appended to this matrix
      * @return {@code true} (as specified by {@link Collection2D#addRow})
      * @throws NullPointerException if the specified row is null
-     * @throws IllegalArgumentException if the row is incompatible (the length of
+     * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -51,7 +52,7 @@ public interface NumericMatrixForAlgebra {
      * @param row row to be appended to this matrix
      * @return {@code true} (as specified by {@link Collection2D#addRow})
      * @throws NullPointerException if the specified row is null
-     *  @throws IllegalArgumentException if the row is incompatible (the length of
+     *  @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -63,7 +64,7 @@ public interface NumericMatrixForAlgebra {
      * @param row row to be appended to this matrix
      * @return {@code true} (as specified by {@link Collection2D#addRow})
      * @throws NullPointerException if the specified row is null
-     *  @throws IllegalArgumentException if the row is incompatible (the length of
+     *  @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -75,7 +76,7 @@ public interface NumericMatrixForAlgebra {
      * @param row row to be appended to this matrix
      * @return {@code true} (as specified by {@link Collection2D#addRow})
      * @throws NullPointerException if the specified row is null
-     *  @throws IllegalArgumentException if the row is incompatible (the length of
+     *  @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -86,12 +87,11 @@ public interface NumericMatrixForAlgebra {
      * @param <T> The generic type parameter representing elements that extends {@code Number}
      * @param row row to be appended to this matrix
      * @return {@code true} (as specified by {@link Collection2D#addRow})
-     * @throws NullPointerException if the specified row is null
-     * @throws IllegalArgumentException if the row is incompatible (the length of
+     * @throws NullPointerException if the specified row is null or if the row contains null elements
+     * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
-	 *                                  columns this matrix has) or if the row
-	 *                                  contains null elements
-     */
+	 *                                  columns this matrix has)
+	 */                                  
 	public <T extends Number> boolean addRow(T[] row);
 
 /* ------------------------------- addRow() by index -----------------------------------------------------*/
@@ -107,7 +107,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the row is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index > rowSize()})
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -124,7 +124,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the row is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index > rowSize()})
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -141,7 +141,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the row is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index > rowSize()})
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -158,7 +158,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the row is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index > rowSize()})
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -175,7 +175,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the row is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index > rowSize()})
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -192,7 +192,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the row is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index > rowSize()})
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -207,13 +207,12 @@ public interface NumericMatrixForAlgebra {
      * @param index index at which the specified element is to be inserted
      * @param row row to be inserted
      * 
- 	 * @throws NullPointerException     if the row is null
+ 	 * @throws NullPointerException     if the row is null or if the row contains null elements
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index > rowSize()})
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
-	 *                                  or if the row contains null elements
      */
 	public <T extends Number> void addRow(int index, T[] row);
 
@@ -226,7 +225,7 @@ public interface NumericMatrixForAlgebra {
      * @return {@code true} (as specified by {@link Collection#add})
      * 
      * @throws NullPointerException if the specified column is null
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -239,7 +238,7 @@ public interface NumericMatrixForAlgebra {
      * @return {@code true} (as specified by {@link Collection#add})
      * 
      * @throws NullPointerException if the specified column is null
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -252,7 +251,7 @@ public interface NumericMatrixForAlgebra {
      * @return {@code true} (as specified by {@link Collection#add})
      * 
      * @throws NullPointerException if the specified column is null
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -265,7 +264,7 @@ public interface NumericMatrixForAlgebra {
      * @return {@code true} (as specified by {@link Collection#add})
      * 
      * @throws NullPointerException if the specified column is null
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -278,7 +277,7 @@ public interface NumericMatrixForAlgebra {
      * @return {@code true} (as specified by {@link Collection#add})
      * 
      * @throws NullPointerException if the specified column is null
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -291,7 +290,7 @@ public interface NumericMatrixForAlgebra {
      * @return {@code true} (as specified by {@link Collection#add})
      * 
      * @throws NullPointerException if the specified column is null
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -304,11 +303,10 @@ public interface NumericMatrixForAlgebra {
      * @param column column to be appended to this matrix
      * @return {@code true} (as specified by {@link Collection#add})
      * 
-     * @throws NullPointerException if the specified column is null
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+     * @throws NullPointerException if the specified column is null or if the row contains null elements
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
-	 *                                  or if this row contains null elements
      */
 	public <T extends Number> boolean addColumn(T[] column);
 
@@ -324,7 +322,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the column is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index > columnSize()})
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -340,7 +338,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the column is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index > columnSize()})
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -356,7 +354,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the column is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index > columnSize()})
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -372,7 +370,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the column is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index > columnSize()})
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -388,7 +386,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the column is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index > columnSize()})
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -404,7 +402,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the column is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index > columnSize()})
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -418,13 +416,12 @@ public interface NumericMatrixForAlgebra {
      * @param <T> The generic type parameter representing elements that extends {@code Number}
      * @param index index at which the specified column is to be inserted
      * @param column column to be inserted
- 	 * @throws NullPointerException     if the column is null
+ 	 * @throws NullPointerException     if the column is null or if the row contains null elements
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index > columnSize()})
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
-	 *                                  or if this column contains null elements
      */
 	public <T extends Number> void addColumn(int indexRow, T[] column);
 
@@ -440,7 +437,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the row is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index >= rowSize()})
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -456,7 +453,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the row is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index >= rowSize()})
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -472,7 +469,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the row is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index >= rowSize()})
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -488,7 +485,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the row is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index >= rowSize()})
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -504,7 +501,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the row is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index >= rowSize()})
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -520,7 +517,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the row is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index >= rowSize()})
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
      */
@@ -534,13 +531,12 @@ public interface NumericMatrixForAlgebra {
      * @param indexRow index of the row to replace
      * @param newRow row to be stored at the specified position
      * @return the row previously at the specified position
- 	 * @throws NullPointerException     if the row is null
+ 	 * @throws NullPointerException     if the row is null or if the row contains null elements
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index >= rowSize()})
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has)
-	 *                                  or if the row contains null elements
      */
 	public <T extends Number> Collection<Number> setRow(int indexRow, T[] newRow);
 
@@ -556,7 +552,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the column is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index >= columnSize()})
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -572,7 +568,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the column is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index >= columnSize()})
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -588,7 +584,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the column is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index >= columnSize()})
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -604,7 +600,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the column is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index >= columnSize()})
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -620,7 +616,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the column is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index >= columnSize()})
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -636,7 +632,7 @@ public interface NumericMatrixForAlgebra {
  	 * @throws NullPointerException     if the column is null
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index >= columnSize()})
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
      */
@@ -650,13 +646,12 @@ public interface NumericMatrixForAlgebra {
      * @param indexColumn index of the column to replace
      * @param newColumn column to be stored at the specified position
      * @return the column previously at the specified position
- 	 * @throws NullPointerException     if the column is null
+ 	 * @throws NullPointerException     if the column is null or if the row contains null elements
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index >= columnSize()})
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has)
-	 *                                  or if the column contains null elements
      */
 	public <T extends Number> Collection<Number> setColumn(int indexColumn, T[] newColumn);
 }

@@ -397,7 +397,7 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
 	 * @param row the row to check its compability
 	 * @throws NullPointerException     if the row is null ({@code RegularMatrix}
 	 *                                  instances do not accept null rows)
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has) due to the
 	 *                                  definition of <i>Regular</i> matrix
@@ -425,7 +425,7 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
 	 * @param col the column to check its compability
 	 * @throws NullPointerException     if the column is null ({@code RegularMatrix}
 	 *                                  instances do not accept null columns)
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  row this matrix has) due to the
 	 *                                  definition of <i>Regular</i> matrix
@@ -452,7 +452,7 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
  	 * 
      * @throws NullPointerException if the row is null ({@code RegularMatrix}
 	 *                                  instances do not accept null rows)
-     * @throws IllegalArgumentException if the row is incompatible (the length of
+     * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has) due to the
 	 *                                  definition of <i>Regular</i> matrix
@@ -471,7 +471,7 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
      * @throws IndexOutOfBoundsException {@inheritDoc}
  	 * @throws NullPointerException     if the row is null ({@code RegularMatrix}
 	 *                                  instances do not accept null rows)
-	 * @throws IllegalArgumentException if the row is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
 	 *                                  the row is different than the number of
 	 *                                  columns this matrix has) due to the
 	 *                                  definition of <i>Regular</i> matrix
@@ -510,7 +510,7 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
      * @return {@code true} (as specified by {@link Collection#add})
 	 * @throws NullPointerException     if the column is null ({@code RegularMatrix}
 	 *                                  instances do not accept null columns)
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has) due to the
 	 *                                  definition of <i>Regular</i> matrix
@@ -530,7 +530,7 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
      * @throws IndexOutOfBoundsException {@inheritDoc}
  	 * @throws NullPointerException     if the column is null ({@code RegularMatrix}
 	 *                                  instances do not accept null column)
-	 * @throws IllegalArgumentException if the column is incompatible (the length of
+	 * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
 	 *                                  the column is different than the number of
 	 *                                  rows this matrix has) due to the
 	 *                                  definition of <i>Regular</i> matrix
@@ -704,8 +704,11 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
      * @return the row previously at the specified position
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified row is null
-     * @throws IllegalArgumentException {@inheritDoc}
      * @throws IndexOutOfBoundsException {@inheritDoc}
+     * @throws IncompatibleCollectionSizeException if the row is incompatible (the length of
+	 *                                  the row is different than the number of
+	 *                                  columns this matrix has) due to the
+	 *                                  definition of <i>Regular</i> matrix
      */
 	public Collection<E> setRow(int indexRow, Collection<E> newRow) {
 		Objects.checkIndex(indexRow, numberOfRows);
@@ -725,8 +728,11 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
      * @return the column previously at the specified position
      * @throws ClassCastException {@inheritDoc}
      * @throws NullPointerException if the specified column is null
-     * @throws IllegalArgumentException {@inheritDoc}
      * @throws IndexOutOfBoundsException {@inheritDoc}
+     * @throws IncompatibleCollectionSizeException if the column is incompatible (the length of
+	 *                                  the column is different than the number of
+	 *                                  columns this matrix has) due to the
+	 *                                  definition of <i>Regular</i> matrix
      */
 	public Collection<E> setColumn(int indexColumn, Collection<E> newColumn) {
 		Objects.checkIndex(indexColumn, numberOfColumns);
