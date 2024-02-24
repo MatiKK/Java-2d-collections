@@ -1251,7 +1251,7 @@ public final class LinearAlgebra {
 	 * @return the cofactor matrix of the given matrix
 	 * @throws NonSquareMatrixException if the given matrix is not square
 	 */
-	public static AlgebraicMatrix matrixCofactor(AlgebraicMatrix mat) throws NonSquareMatrixException {
+	public static AlgebraicMatrix matrixCofactor(AlgebraicMatrix mat) {
 		if (!mat.isSquare())
 			throw new NonSquareMatrixException(mat.rowSize(), mat.columnSize());
 		int size = mat.rowSize();
@@ -1282,7 +1282,7 @@ public final class LinearAlgebra {
 	 * @return the adjugate of the given matrix
 	 * @throws NonSquareMatrixException if the given matrix is not square
 	 */
-	public static AlgebraicMatrix matrixAdjugate(AlgebraicMatrix mat) throws NonSquareMatrixException {
+	public static AlgebraicMatrix matrixAdjugate(AlgebraicMatrix mat) {
 		return matrixCofactor(mat).transpose();
 	}
 
@@ -1297,7 +1297,7 @@ public final class LinearAlgebra {
 	 * @throws NonInvertibleMatrixException if the given matrix is non invertible
 	 * @throws NonSquareMatrixException if the given matrix is not square
 	 */
-	public static AlgebraicMatrix matrixInverse(AlgebraicMatrix mat) throws NonSquareMatrixException, NonInvertibleMatrixException {
+	public static AlgebraicMatrix matrixInverse(AlgebraicMatrix mat) throws NonInvertibleMatrixException {
 		// TODO for high dimensions, this is not effective
 		// Should use Gaussian elimination
 
