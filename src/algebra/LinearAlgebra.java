@@ -1287,10 +1287,16 @@ public final class LinearAlgebra {
 	}
 
 	/**
-	 * Calculates the inverse of the given matrix.
-	 * <p> This implementation currently computes the inverse of a matrix A by the definition
+	 * Calculates the inverse of the given matrix, if it exists.
+	 * <p>
+	 * The inverse of a square matrix is another matrix that, 
+	 * when multiplied with the original matrix, results in the identity matrix.
+	 * </p>
+	 * <p>
+	 * This implementation currently computes the inverse of a matrix A
+	 * by the adjugate definition:
 	 * <blockquote><pre>
-	 * A<sup>-1</sup> = (1/|A|) * adj(A)
+	 * A<sup>-1</sup> = 1/|A| * adj(A)
 	 * </pre></blockquote>
 	 * @param mat matrix for which the inverse is to be computed
 	 * @return the inverse of the given matrix
@@ -1298,11 +1304,8 @@ public final class LinearAlgebra {
 	 * @throws NonSquareMatrixException if the given matrix is not square
 	 */
 	public static AlgebraicMatrix matrixInverse(AlgebraicMatrix mat) throws NonInvertibleMatrixException {
-		// TODO for high dimensions, this is not effective
-		// Should use Gaussian elimination
 
 		double det = mat.determinant();
-		// FIXME maybe
 		// for matrices 1x1 it makes inverse matrix to be always [1]
 		// But this fixes it
 		if (mat.rowSize() == 1) det *= det;
@@ -1310,4 +1313,126 @@ public final class LinearAlgebra {
 		return matrixScalarMultiplication(matrixAdjugate(mat), 1d/det);
 	}
 
+	/**
+	 *  Calculates the inverse of the given matrix, if it exists.
+	 * <p>
+	 * The inverse of a square matrix is another matrix that, 
+	 * when multiplied with the original matrix, results in the identity matrix.
+	 * </p>
+	 * <p>
+	 * This method calculates the inverse matrix using Gaussian elimination, 
+	 * which involves augmenting the input matrix with the identity matrix 
+	 * and performing row operations until the original matrix is transformed 
+	 * into the identity matrix. The resulting transformed
+ 	 * matrix on the right will be the inverse of the input matrix.
+ 	 * </p>
+	 * @param mat matrix for which the inverse is to be computed
+	 * @return the inverse of the given matrix
+	 * @throws NonInvertibleMatrixException if the given matrix is non invertible
+	 * @throws NonSquareMatrixException if the given matrix is not square
+	 */
+	public static AlgebraicMatrix matrixInverseGaussianElimination(AlgebraicMatrix mat) throws NonInvertibleMatrixException {
+		/**
+		 * The tests done in Test.java shows that
+		 * this is significantly faster as the matrix dimension grows.
+		 * There is a very small difference of values, a diference smaller than 10^12
+		 * Thats the reason why in Test.java result.equals(result2) == false
+		 * I still havent figured out which of them is more accurate
+		 * ---------------------------------------------------------------------------*/
+		if (!mat.isSquare())
+			throw new NonSquareMatrixException();
+
+		AlgebraicMatrix m = (AlgebraicMatrix) mat.clone();
+
+		int size = m.rowSize();
+
+		AlgebraicMatrix iden = matrixIdentity(size);
+
+		orderAndApplyOverIdentity(m,iden);
+
+		// Acheve row echelon form on m, applying the row operations also on the identity matrix
+		for (int i = 0; i < size - 1; i++) {
+			Number[] currentRowM = m.rowToArray(i);
+			int indexPivotCurrentRowM = NumericArrays.indexFirstNotZeroNumber(currentRowM);
+			for (int j = i + 1; j < size; j++) {
+				Number[] nextRowM = m.rowToArray(j);
+				int indexPivotNextRowM = NumericArrays.indexFirstNotZeroNumber(nextRowM);
+				if (indexPivotCurrentRowM == indexPivotNextRowM && indexPivotCurrentRowM != -1) {
+					Number[] currentRowIden = iden.rowToArray(i);
+					Number[] nextRowIden = iden.rowToArray(j);
+					double currentRowFirstNumber, nextRowFirstNumber, alpha;
+					currentRowFirstNumber = currentRowM[indexPivotCurrentRowM].doubleValue();
+					nextRowFirstNumber = nextRowM[indexPivotNextRowM].doubleValue();
+					alpha = Double.valueOf( nextRowFirstNumber / currentRowFirstNumber);
+					// Method over m
+					Number[] auxiliarRow = LinearAlgebra.vectorScalarMultiplication(currentRowM, alpha);
+					auxiliarRow = LinearAlgebra.vectorSubtraction(nextRowM, auxiliarRow);
+					m.setRow(j,auxiliarRow);
+					m.checkLength(auxiliarRow);
+					// Method over identiy
+					auxiliarRow = LinearAlgebra.vectorScalarMultiplication(currentRowIden, alpha);
+					auxiliarRow = LinearAlgebra.vectorSubtraction(nextRowIden, auxiliarRow);
+					iden.setRow(j,auxiliarRow);
+					iden.checkLength(auxiliarRow);
+				}
+			}
+		}
+
+		// index of the pivot in last row of m
+		double aux = NumericArrays.indexFirstNotZeroNumber(m.rowToArray(size-1));
+
+		// If the last row of mat is a null vector, it is not inversible		
+		if (aux == -1)
+			throw new NonInvertibleMatrixException();
+
+		// aux = pivot of last row
+		aux = m.rowToArray(size - 1)[(int)aux].doubleValue();
+
+		// Make last row pivot to be 1, -> [0 0 ... 0 1]
+		if (aux != 1) {
+			m.setRow(size - 1,vectorScalarMultiplication(m.rowToArray(size - 1),1d/aux));
+			iden.setRow(size - 1,vectorScalarMultiplication(iden.rowToArray(size - 1),1d/aux));
+		}
+
+		// Subtract rows and divide corresponding rows in order to m to be identity
+		for (int i = size - 1; i > 0; i--) {
+			for (int j = i - 1; j >= 0; j--) {
+				Number[] rowM = m.rowToArray(j);
+				double lastNum = rowM[i].doubleValue();
+				if (lastNum == 0) continue;
+				// Method over m
+				rowM = vectorSubtraction(rowM,vectorScalarMultiplication(m.rowToArray(i), lastNum));
+				aux = rowM[j].doubleValue();
+				if (aux != 0) rowM = vectorScalarMultiplication(rowM, 1d/aux);
+				m.setRow(j,rowM);
+				// Method over identity
+				Number[] rowIden = iden.rowToArray(j);			
+				rowIden = vectorSubtraction(rowIden, vectorScalarMultiplication(iden.rowToArray(i), lastNum));
+				if (aux != 0) rowIden = vectorScalarMultiplication(rowIden, 1d/aux);
+				iden.setRow(j,rowIden);
+			}
+		}
+
+		// m should be the identity matrix at this point
+		return iden;
+	}
+
+	/**
+	 * Order the rows of mat, based on the index of the rows pivot.
+	 * Every row swap will also be performed in the identity matrix
+	 * @param mat matrix which to fin inverse matrix (only use of this method)
+	 * @param iden identity matrix where swap rows will also be performed
+	 */
+	private static void orderAndApplyOverIdentity(AlgebraicMatrix mat, AlgebraicMatrix iden) {
+		for (int row1 = 0; row1 < mat.rowSize() - 1; row1++) {
+			for (int row2 = row1 + 1; row2 < mat.rowSize(); row2++) {
+				int indexRow1 = NumericArrays.indexFirstNotZeroNumber(mat.rowToArray(row1));
+				int indexRow2 = NumericArrays.indexFirstNotZeroNumber(mat.rowToArray(row2));
+				if ( indexRow1 == -1 || (indexRow1 > indexRow2 && indexRow2 != -1 )) {
+					mat.swapRows(row1, row2);
+					iden.swapRows(row1,row2);
+				}
+			}
+		}
+	}
 }
