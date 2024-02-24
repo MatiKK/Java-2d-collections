@@ -883,7 +883,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * @throws NonSquareMatrixException if this matrix is not square
 	 * @throws NonInvertibleMatrixException if this matrix is not invertible
 	 */
-	public AlgebraicMatrix inverse() {
+	public AlgebraicMatrix inverse() throws NonInvertibleMatrixException {
 		return LinearAlgebra.matrixInverse(this);
 	}
 
