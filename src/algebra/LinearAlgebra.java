@@ -994,7 +994,7 @@ public final class LinearAlgebra {
 	}
 
 	private static void checkMatrixOperationIfItCanHappen(AlgebraicMatrix m1, AlgebraicMatrix m2) {
-		isValid(m1); isValid(m2); if (!areValidForOperation(m1, m2)) throw new AlgebraicMatrixException("Can't operate with these matrices due to their different dimensions");
+		isValid(m1); isValid(m2); if (!areValidForOperation(m1, m2)) throw new AlgebraicMatrixException("Different dimensions matrices");
 	}
 
 	private static boolean areValidForMultiplication(AlgebraicMatrix m1, AlgebraicMatrix m2) {
@@ -1002,7 +1002,7 @@ public final class LinearAlgebra {
 	}
 
 	private static void checkMatrixMultiplicationIfItCanHappen(AlgebraicMatrix m1, AlgebraicMatrix m2) {
-		isValid(m1); isValid(m2); if (!areValidForMultiplication(m1, m2)) throw new AlgebraicMatrixException("Unsupported operation for different dimensions matrices");
+		isValid(m1); isValid(m2); if (!areValidForMultiplication(m1, m2)) throw new AlgebraicMatrixException("Incompatible dimensions matrices for multiplication");
 	}
 
 	/**
@@ -1251,7 +1251,7 @@ public final class LinearAlgebra {
 	 * @return the cofactor matrix of the given matrix
 	 * @throws NonSquareMatrixException if the given matrix is not square
 	 */
-	public static AlgebraicMatrix matrixCofactor(AlgebraicMatrix mat) {
+	public static AlgebraicMatrix matrixCofactor(AlgebraicMatrix mat) throws NonSquareMatrixException {
 		if (!mat.isSquare())
 			throw new NonSquareMatrixException(mat.rowSize(), mat.columnSize());
 		int size = mat.rowSize();
@@ -1282,7 +1282,7 @@ public final class LinearAlgebra {
 	 * @return the adjugate of the given matrix
 	 * @throws NonSquareMatrixException if the given matrix is not square
 	 */
-	public static AlgebraicMatrix matrixAdjugate(AlgebraicMatrix mat) {
+	public static AlgebraicMatrix matrixAdjugate(AlgebraicMatrix mat) throws NonSquareMatrixException {
 		return matrixCofactor(mat).transpose();
 	}
 
@@ -1297,7 +1297,7 @@ public final class LinearAlgebra {
 	 * @throws NonInvertibleMatrixException if the given matrix is non invertible
 	 * @throws NonSquareMatrixException if the given matrix is not square
 	 */
-	public static AlgebraicMatrix matrixInverse(AlgebraicMatrix mat) {
+	public static AlgebraicMatrix matrixInverse(AlgebraicMatrix mat) throws NonSquareMatrixException, NonInvertibleMatrixException {
 		// TODO for high dimensions, this is not effective
 		// Should use Gaussian elimination
 

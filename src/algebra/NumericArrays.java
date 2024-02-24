@@ -13,17 +13,16 @@ public final class NumericArrays {
 
 	// checking methods
 	private static String EMPTY_ARRAY = "Invalid operation for empty arrays";
-	private static void differentSize(int a, int b) {
-		throw new IncompatibleArrayLengthException(a,b);
-	}
+	static void emptyArray(String msg) {throw new IllegalArgumentException(msg);}
+	private static void differentSize(int a, int b) {throw new IncompatibleArrayLengthException(a,b);}
 
-	static void checkEmptiness(int[] arr) {if (arr.length == 0)throw new IllegalArgumentException(EMPTY_ARRAY);}
-	static void checkEmptiness(byte[] arr) {if (arr.length == 0)throw new IllegalArgumentException(EMPTY_ARRAY);}
-	static void checkEmptiness(short[] arr) {if (arr.length == 0)throw new IllegalArgumentException(EMPTY_ARRAY);}
-	static void checkEmptiness(long[] arr) {if (arr.length == 0)throw new IllegalArgumentException(EMPTY_ARRAY);}
-	static void checkEmptiness(float[] arr) {if (arr.length == 0)throw new IllegalArgumentException(EMPTY_ARRAY);}
-	static void checkEmptiness(double[] arr) {if (arr.length == 0)throw new IllegalArgumentException(EMPTY_ARRAY);}
-	static <T extends Number> void checkEmptiness(T[] arr) {if (arr.length == 0)throw new IllegalArgumentException(EMPTY_ARRAY);}
+	static void checkEmptiness(int[] arr) {if (arr.length == 0)emptyArray(EMPTY_ARRAY);}
+	static void checkEmptiness(byte[] arr) {if (arr.length == 0)emptyArray(EMPTY_ARRAY);}
+	static void checkEmptiness(short[] arr) {if (arr.length == 0)emptyArray(EMPTY_ARRAY);}
+	static void checkEmptiness(long[] arr) {if (arr.length == 0)emptyArray(EMPTY_ARRAY);}
+	static void checkEmptiness(float[] arr) {if (arr.length == 0)emptyArray(EMPTY_ARRAY);}
+	static void checkEmptiness(double[] arr) {if (arr.length == 0)emptyArray(EMPTY_ARRAY);}
+	static <T extends Number> void checkEmptiness(T[] arr) {if (arr.length == 0)emptyArray(EMPTY_ARRAY);}
 
 	static void checkIfOperationCanBePerformed(int[] arr1, int[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length) differentSize(arr1.length, arr2.length);}
 	static void checkIfOperationCanBePerformed(byte[] arr1, byte[] arr2) {checkEmptiness(arr1);checkEmptiness(arr2);if (arr1.length != arr2.length)differentSize(arr1.length, arr2.length);}
