@@ -884,7 +884,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 	 * @throws NonInvertibleMatrixException if this matrix is not invertible
 	 */
 	public AlgebraicMatrix inverse() throws NonInvertibleMatrixException {
-		return LinearAlgebra.matrixInverse(this);
+		return LinearAlgebra.matrixInverseGaussianElimination(this);
 	}
 
 	/**
