@@ -452,7 +452,7 @@ public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMat
 		if (column.contains(null))
 			throw new IllegalArgumentException("The given column contains null elements");
 		checkLength(column);
-		super.addRow(index, column);
+		super.addColumn(index, column);
 	}
 
 	/**
