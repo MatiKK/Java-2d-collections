@@ -19,7 +19,7 @@ import java.util.Collection;
  * 
  * @param <E> the types of elements in this matrix
  */
-public class RegularMatrix<E> extends AbstractMatrix<E>
+public class RegularMatrix<E> extends AbstractRegularMatrix<E>
 		implements Matrix<E>, Cloneable, java.io.Serializable, java.util.RandomAccess
 {
 
@@ -46,7 +46,7 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
 	 * the length of this array buffer. Any empty RegularMatrix with rows ==
 	 * EMPTY_MATRIX will be expanded to the first row size.
 	 */
-	private Object[][] rows;
+	public Object[][] rows;
 
 	/**
 	 * The total rows this RegularMatrix can contain (this does NOT determine
@@ -197,40 +197,6 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
 //		Arrays.fill(rows = new Object[currentRowCapacity][], null);
 		for (int i = 0; i < rows.length; i++) {
 			rows[i] = null;
-		}
-	}
-
-	// borrar luego
-	public void data() {
-		System.out.println(
-				"----------------------------------------------------------------------------\nEsta matriz tiene espacio para contener "
-						+ currentRowCapacity + " filas y " + currentColumnCapacity + " columnas.\nActualmente tiene "
-						+ rowSize() + " filas, " + columnSize() + " columnas y " + totalSize() + " elementos."
-						+ "\nObject[][] rows tiene " + rows.length
-						+ " filas actualmente \n----------------------------------------------------------------------------");
-	}
-
-	// borrar luego
-	public void showData() {
-		if (rows.length == 0) {
-			System.out.println("vacio por completo");
-			return;
-		}
-		for (Object[] row : rows) {
-			if (row == null)
-				System.out.println("[null row]");
-			else {
-				System.out.print("[ ");
-				for (Object e : row) {
-					if (e == null)
-						System.out.print("null");
-					else {
-						System.out.print(e.toString());
-					}
-					System.out.print(", ");
-				}
-				System.out.println("]");
-			}
 		}
 	}
 
@@ -403,19 +369,11 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
 	 *                                  definition of <i>Regular</i> matrix
 	 */
 	protected void checkRowCompability(Collection<E> row) {
-
-		if (row == null)
-			throw new NullPointerException();
-
-		int checkedRowLength = row.size();
-
+		super.checkRowCompability(row);
 		if (isEmpty()) {
 			if (stillEmptyFromConstruction)
-				currentColumnCapacity = Math.max(checkedRowLength, currentColumnCapacity);
+				currentColumnCapacity = Math.max(row.size(), currentColumnCapacity);
 		}
-
-		else if (checkedRowLength != numberOfColumns)
-			throw new IncompatibleCollectionSizeException(getDimension(), checkedRowLength, true);
 	}
 	
 	/**
@@ -431,21 +389,13 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
 	 *                                  definition of <i>Regular</i> matrix
 	 */
 	protected void checkColumnCompability(Collection<E> column) {
-
-		if (column == null)
-			throw new NullPointerException();
-
-		int checkedColumnLength = column.size();
-
+		super.checkRowCompability(column);
 		if (isEmpty()) {
 			if (stillEmptyFromConstruction)
 				Arrays.fill(rows = new Object[currentRowCapacity = Math.max(currentRowCapacity,
-						checkedColumnLength)][currentColumnCapacity], null);
+						column.size())][currentColumnCapacity], null);
 			rows = increaseRowCapacity(currentRowCapacity);
 		}
-
-		else if (checkedColumnLength != numberOfRows)
-			throw new IncompatibleCollectionSizeException(getDimension(), checkedColumnLength, false);
 	}
 
 	/** Appends the specified row to the end of this matrix.
@@ -477,8 +427,7 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
 	 *                                  definition of <i>Regular</i> matrix
      */
 	public void addRow(int index, Collection<E> row) {
-		Objects.checkIndex(index, rowSize() + 1);
-		checkRowCompability(row);
+		super.addRow(index, row);
 		checkRowCapacity(rows, true);
 		System.arraycopy(rows, index, rows, index + 1, numberOfRows - index);
 		Object[] newRow = row.toArray();
@@ -536,9 +485,7 @@ public class RegularMatrix<E> extends AbstractMatrix<E>
 	 *                                  definition of <i>Regular</i> matrix
      */
 	public void addColumn(int index, Collection<E> col) {
-
-		Objects.checkIndex(index, columnSize() + 1);
-		checkColumnCompability(col);
+		super.addColumn(index, col);
 		checkColumnCapacity(true);
 		Object[] c = col.toArray();
 		numberOfRows = c.length;

@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import collections2d.RegularMatrix;
-import collections2d.IncompatibleCollectionSizeException;
 
 public class AlgebraicMatrix extends RegularMatrix<Number> implements NumericMatrixForAlgebra, Cloneable {
 
