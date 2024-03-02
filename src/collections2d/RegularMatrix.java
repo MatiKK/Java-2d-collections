@@ -46,7 +46,7 @@ public class RegularMatrix<E> extends AbstractRegularMatrix<E>
 	 * the length of this array buffer. Any empty RegularMatrix with rows ==
 	 * EMPTY_MATRIX will be expanded to the first row size.
 	 */
-	public Object[][] rows;
+	private Object[][] rows;
 
 	/**
 	 * The total rows this RegularMatrix can contain (this does NOT determine
